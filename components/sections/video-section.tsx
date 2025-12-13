@@ -38,7 +38,7 @@ export function VideoSection() {
                             color: '#FC7342'
                         }}
                     >
-                        LA METODOLOGÍA
+                        ¿Qué ofrecemos?
                     </span>
 
                     {/* Headline */}
@@ -51,8 +51,7 @@ export function VideoSection() {
                             padding: '0 10px'
                         }}
                     >
-                        No vendemos cursos,{" "}
-                        <span style={{ color: '#B7B6B6' }}>enseñamos libertad.</span>
+                        Toma el control de tu carrera.
                     </h2>
 
                     {/* Vimeo Video Embed */}

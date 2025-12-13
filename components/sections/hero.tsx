@@ -88,8 +88,8 @@ export function HeroSection() {
                             color: '#FFFFFF'
                         }}
                     >
-                        Tu trabajo debe financiar tus sueños,{" "}
-                        <span style={{ color: '#FC7342' }}>no limitarlos.</span>
+                        Encuentra el trabajo remoto{" "}
+                        <span style={{ color: '#FC7342' }}>de tus sueños.</span>
                     </h1>
 
                     {/* Subheadline */}
@@ -105,8 +105,8 @@ export function HeroSection() {
                             padding: '0 10px'
                         }}
                     >
-                        Rompe el status quo. Consigue un trabajo remoto en dólares
-                        y conquista la libertad absoluta.
+                        Sistema claro y accionable.<br />
+                        Para conseguir tu primer trabajo remoto en dólares.
                     </p>
 
                     {/* CTA Buttons */}
@@ -127,9 +127,7 @@ export function HeroSection() {
                             onClick={() => {
                                 // Meta Pixel
                                 if (typeof window !== 'undefined' && (window as any).fbq) {
-                                    (window as any).fbq('track', 'InitiateCheckout', {
-                                        content_name: 'hero_button'
-                                    });
+                                    (window as any).fbq('track', 'InitiateCheckout');
                                 }
                                 // GA4
                                 if (typeof window !== 'undefined' && (window as any).gtag) {

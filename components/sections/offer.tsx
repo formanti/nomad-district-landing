@@ -5,12 +5,12 @@ import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 const features = [
-    "Metodología clara paso a paso",
-    "Vacantes filtradas cada semana",
-    "Revisión de CV y perfil PRO",
-    "Comunidad privada para networking",
-    "Sesiones semanales en vivo",
-    "BONUS: Módulos AI Native & Monetización",
+    "Metodología probada paso a paso",
+    "Preparación de documentos (CV, Cover Letter y LinkedIn)",
+    "Aprende a encontrar los mejores trabajos remotos",
+    "Prepárate para las entrevistas como un pro",
+    "Usa IA para potenciar tu búsqueda",
+    "Sesiones semanales de Q&A en vivo",
 ];
 
 export function OfferSection() {
@@ -102,33 +102,41 @@ export function OfferSection() {
                     <div
                         style={{
                             display: 'flex',
-                            flexDirection: 'column',
-                            gap: '16px',
+                            justifyContent: 'center',
                             marginBottom: '32px'
                         }}
                     >
-                        {features.map((feature, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1, duration: 0.4 }}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '12px'
-                                }}
-                            >
-                                <CheckCircle2
-                                    size={22}
-                                    style={{ color: '#FC7342', flexShrink: 0 }}
-                                />
-                                <span style={{ fontSize: '15px', color: '#FFFFFF' }}>
-                                    {feature}
-                                </span>
-                            </motion.div>
-                        ))}
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '16px',
+                                alignItems: 'flex-start'
+                            }}
+                        >
+                            {features.map((feature, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1, duration: 0.4 }}
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '12px'
+                                    }}
+                                >
+                                    <CheckCircle2
+                                        size={22}
+                                        style={{ color: '#FC7342', flexShrink: 0 }}
+                                    />
+                                    <span style={{ fontSize: '15px', color: '#FFFFFF' }}>
+                                        {feature}
+                                    </span>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
 
                     {/* CTA */}
@@ -139,9 +147,7 @@ export function OfferSection() {
                             onClick={() => {
                                 // Meta Pixel
                                 if (typeof window !== 'undefined' && (window as any).fbq) {
-                                    (window as any).fbq('track', 'InitiateCheckout', {
-                                        content_name: 'offer_button'
-                                    });
+                                    (window as any).fbq('track', 'InitiateCheckout');
                                 }
                                 // GA4
                                 if (typeof window !== 'undefined' && (window as any).gtag) {

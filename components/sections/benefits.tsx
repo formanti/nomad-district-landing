@@ -15,8 +15,8 @@ const benefits = [
         icon: Globe2,
     },
     {
-        title: "Comunidad Elite",
-        description: "Rodéate de personas que te inspiran. Networking real con profesionales de alto nivel.",
+        title: "Comunidad Activa",
+        description: "Rodéate de personas que están pasando por el mismo proceso que tú.",
         icon: Users,
     },
 ];
