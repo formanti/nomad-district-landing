@@ -134,7 +134,7 @@ export function OfferSection() {
                     {/* CTA */}
                     <div style={{ textAlign: 'center' }}>
                         <Link
-                            href="https://www.skool.com/nomad-district"
+                            href="https://www.skool.com/nomad-district/plans"
                             id="btn-join-offer"
                             style={{
                                 display: 'inline-flex',
