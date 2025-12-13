@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
 
 export function VideoSection() {
     return (
@@ -54,7 +53,7 @@ export function VideoSection() {
                         <span style={{ color: '#B7B6B6' }}>enseñamos libertad.</span>
                     </h2>
 
-                    {/* Video Placeholder */}
+                    {/* Vimeo Video Embed */}
                     <div
                         style={{
                             position: 'relative',
@@ -67,48 +66,19 @@ export function VideoSection() {
                             boxShadow: '0 30px 80px rgba(0,0,0,0.5)'
                         }}
                     >
-                        <div
+                        <iframe
+                            src="https://player.vimeo.com/video/1146233269?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0"
                             style={{
                                 position: 'absolute',
-                                inset: 0,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                background: 'linear-gradient(135deg, #1a1f27 0%, #0a0c0f 100%)'
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                border: 'none'
                             }}
-                        >
-                            {/* Play Button */}
-                            <div
-                                style={{
-                                    width: '96px',
-                                    height: '96px',
-                                    borderRadius: '50%',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    backgroundColor: '#FC7342',
-                                    boxShadow: '0 15px 50px rgba(252, 115, 66, 0.4)',
-                                    cursor: 'pointer',
-                                    transition: 'transform 0.3s ease'
-                                }}
-                            >
-                                <Play size={40} fill="#FFFFFF" color="#FFFFFF" style={{ marginLeft: '4px' }} />
-                            </div>
-                        </div>
-
-                        {/* Placeholder Text */}
-                        <div
-                            style={{
-                                position: 'absolute',
-                                bottom: '24px',
-                                left: '24px',
-                                textAlign: 'left'
-                            }}
-                        >
-                            <p style={{ color: '#B7B6B6', fontSize: '14px' }}>
-                                Video próximamente
-                            </p>
-                        </div>
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                            title="Nomad District - Metodología"
+                        />
                     </div>
 
                     {/* Caption */}
