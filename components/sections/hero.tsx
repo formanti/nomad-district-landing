@@ -122,7 +122,7 @@ export function HeroSection() {
                         }}
                     >
                         <Link
-                            href="https://www.skool.com/nomad-district"
+                            href="https://www.skool.com/nomad-district/plans"
                             id="btn-join-hero"
                             style={{
                                 display: 'inline-flex',
@@ -145,6 +145,9 @@ export function HeroSection() {
                         </Link>
                         <button
                             id="btn-methodology"
+                            onClick={() => {
+                                document.getElementById('video-section')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
                             style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',
@@ -162,7 +165,7 @@ export function HeroSection() {
                                 transition: 'all 0.3s ease'
                             }}
                         >
-                            Ver metodología
+                            ¿Qué ofrecemos?
                         </button>
                     </div>
                 </motion.div>

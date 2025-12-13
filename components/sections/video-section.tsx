@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 export function VideoSection() {
     return (
         <section
+            id="video-section"
             style={{
                 padding: '60px 0',
                 backgroundColor: '#14181E',
