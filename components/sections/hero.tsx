@@ -71,7 +71,7 @@ export function HeroSection() {
                             color: '#FC7342'
                         }}
                     >
-                        Lifestyle as a Service
+                        Remote Job Academy
                     </span>
 
                     {/* Headline */}
