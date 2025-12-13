@@ -127,7 +127,9 @@ export function HeroSection() {
                             onClick={() => {
                                 // Meta Pixel
                                 if (typeof window !== 'undefined' && (window as any).fbq) {
-                                    (window as any).fbq('track', 'InitiateCheckout');
+                                    (window as any).fbq('track', 'InitiateCheckout', {
+                                        content_name: 'hero_button'
+                                    });
                                 }
                                 // GA4
                                 if (typeof window !== 'undefined' && (window as any).gtag) {
