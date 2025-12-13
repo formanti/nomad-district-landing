@@ -21,8 +21,8 @@ export function HeroSection() {
             {/* Background Image */}
             <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
                 <Image
-                    src="/images/uploaded_image_1765646208015.png"
-                    alt="Freedom Lifestyle"
+                    src="/images/hero-cliff.jpeg"
+                    alt="Freedom Lifestyle - Cliff Jumping"
                     fill
                     style={{ objectFit: 'cover', objectPosition: 'center' }}
                     priority
