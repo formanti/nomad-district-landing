@@ -136,6 +136,19 @@ export function OfferSection() {
                         <Link
                             href="https://www.skool.com/nomad-district/plans"
                             id="btn-join-offer"
+                            onClick={() => {
+                                // Meta Pixel
+                                if (typeof window !== 'undefined' && (window as any).fbq) {
+                                    (window as any).fbq('track', 'InitiateCheckout');
+                                }
+                                // GA4
+                                if (typeof window !== 'undefined' && (window as any).gtag) {
+                                    (window as any).gtag('event', 'initiate_checkout', {
+                                        event_category: 'engagement',
+                                        event_label: 'offer_cta'
+                                    });
+                                }
+                            }}
                             style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',
