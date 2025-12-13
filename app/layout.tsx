@@ -16,8 +16,8 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nomad District | Trabajos Remotos y Libertad",
-  description: "Consigue el trabajo remoto de tus sueños y viaja por el mundo. Lifestyle as a service.",
+  title: "Remote Jobs & AI Academy",
+  description: "Encuentra el trabajo remoto de tus sueños. Sistema claro y accionable para conseguir tu primer trabajo remoto en dólares.",
 };
 
 export default function RootLayout({
