@@ -14,7 +14,8 @@ export function HeroSection() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                padding: '80px 0 40px 0'
             }}
         >
             {/* Background Image */}
@@ -40,13 +41,14 @@ export function HeroSection() {
 
             {/* Content */}
             <div
+                className="hero-content"
                 style={{
                     position: 'relative',
                     zIndex: 10,
                     width: '100%',
                     maxWidth: '900px',
                     margin: '0 auto',
-                    padding: '0 24px',
+                    padding: '0 20px',
                     textAlign: 'center'
                 }}
             >
@@ -57,15 +59,16 @@ export function HeroSection() {
                 >
                     {/* Badge */}
                     <span
+                        className="hero-badge"
                         style={{
                             display: 'inline-block',
-                            padding: '10px 20px',
+                            padding: '8px 16px',
                             borderRadius: '9999px',
-                            fontSize: '12px',
+                            fontSize: '11px',
                             fontWeight: 600,
-                            letterSpacing: '0.15em',
+                            letterSpacing: '0.12em',
                             textTransform: 'uppercase',
-                            marginBottom: '32px',
+                            marginBottom: '24px',
                             background: 'rgba(252, 115, 66, 0.15)',
                             border: '1px solid rgba(252, 115, 66, 0.3)',
                             color: '#FC7342'
@@ -76,11 +79,12 @@ export function HeroSection() {
 
                     {/* Headline */}
                     <h1
+                        className="hero-headline"
                         style={{
-                            fontSize: 'clamp(36px, 6vw, 64px)',
+                            fontSize: 'clamp(28px, 8vw, 64px)',
                             fontWeight: 700,
-                            lineHeight: 1.1,
-                            marginBottom: '24px',
+                            lineHeight: 1.15,
+                            marginBottom: '20px',
                             color: '#FFFFFF'
                         }}
                     >
@@ -90,13 +94,15 @@ export function HeroSection() {
 
                     {/* Subheadline */}
                     <p
+                        className="hero-subheadline"
                         style={{
-                            fontSize: 'clamp(18px, 2.5vw, 22px)',
-                            marginBottom: '48px',
-                            maxWidth: '700px',
-                            margin: '0 auto 48px auto',
+                            fontSize: 'clamp(16px, 4vw, 22px)',
+                            marginBottom: '32px',
+                            maxWidth: '600px',
+                            margin: '0 auto 32px auto',
                             color: 'rgba(255,255,255,0.7)',
-                            lineHeight: 1.6
+                            lineHeight: 1.6,
+                            padding: '0 10px'
                         }}
                     >
                         Rompe el status quo. Consigue un trabajo remoto en dólares
@@ -105,12 +111,14 @@ export function HeroSection() {
 
                     {/* CTA Buttons */}
                     <div
+                        className="hero-buttons"
                         style={{
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: '16px',
+                            gap: '12px',
                             alignItems: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            padding: '0 10px'
                         }}
                     >
                         <Link
@@ -120,9 +128,11 @@ export function HeroSection() {
                                 display: 'inline-flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                padding: '18px 48px',
+                                width: '100%',
+                                maxWidth: '320px',
+                                padding: '16px 32px',
                                 borderRadius: '9999px',
-                                fontSize: '18px',
+                                fontSize: '16px',
                                 fontWeight: 600,
                                 backgroundColor: '#FC7342',
                                 color: '#FFFFFF',
@@ -139,9 +149,11 @@ export function HeroSection() {
                                 display: 'inline-flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                padding: '18px 48px',
+                                width: '100%',
+                                maxWidth: '320px',
+                                padding: '16px 32px',
                                 borderRadius: '9999px',
-                                fontSize: '18px',
+                                fontSize: '16px',
                                 fontWeight: 500,
                                 backgroundColor: 'transparent',
                                 color: '#FFFFFF',
@@ -156,14 +168,16 @@ export function HeroSection() {
                 </motion.div>
             </div>
 
-            {/* Scroll Indicator */}
+            {/* Scroll Indicator - Hidden on mobile */}
             <motion.div
+                className="scroll-indicator"
                 style={{
                     position: 'absolute',
-                    bottom: '40px',
+                    bottom: '24px',
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    zIndex: 10
+                    zIndex: 10,
+                    display: 'none'
                 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, y: [0, 8, 0] }}
@@ -190,6 +204,21 @@ export function HeroSection() {
                     />
                 </div>
             </motion.div>
+
+            <style jsx>{`
+        @media (min-width: 640px) {
+          .hero-buttons {
+            flex-direction: row !important;
+            gap: 16px !important;
+          }
+          .hero-buttons a, .hero-buttons button {
+            width: auto !important;
+          }
+          .scroll-indicator {
+            display: block !important;
+          }
+        }
+      `}</style>
         </section>
     );
 }

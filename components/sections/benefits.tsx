@@ -25,7 +25,7 @@ export function BenefitsSection() {
     return (
         <section
             style={{
-                padding: '100px 0',
+                padding: '60px 0',
                 backgroundColor: '#0d1015'
             }}
         >
@@ -34,19 +34,19 @@ export function BenefitsSection() {
                     width: '100%',
                     maxWidth: '1200px',
                     margin: '0 auto',
-                    padding: '0 24px'
+                    padding: '0 16px'
                 }}
             >
                 {/* Section Header */}
-                <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+                <div style={{ textAlign: 'center', marginBottom: '40px' }}>
                     <span
                         style={{
                             display: 'block',
-                            fontSize: '13px',
+                            fontSize: '12px',
                             fontWeight: 600,
-                            letterSpacing: '0.2em',
+                            letterSpacing: '0.15em',
                             textTransform: 'uppercase',
-                            marginBottom: '16px',
+                            marginBottom: '12px',
                             color: '#FC7342'
                         }}
                     >
@@ -54,9 +54,10 @@ export function BenefitsSection() {
                     </span>
                     <h2
                         style={{
-                            fontSize: 'clamp(28px, 4vw, 48px)',
+                            fontSize: 'clamp(24px, 6vw, 48px)',
                             fontWeight: 700,
-                            color: '#FFFFFF'
+                            color: '#FFFFFF',
+                            padding: '0 10px'
                         }}
                     >
                         Transforma tu carrera profesional
@@ -67,8 +68,8 @@ export function BenefitsSection() {
                 <div
                     style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                        gap: '32px'
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                        gap: '20px'
                     }}
                 >
                     {benefits.map((benefit, index) => (
@@ -79,8 +80,8 @@ export function BenefitsSection() {
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.15, duration: 0.5 }}
                             style={{
-                                padding: '40px',
-                                borderRadius: '24px',
+                                padding: '28px',
+                                borderRadius: '20px',
                                 backgroundColor: 'rgba(255,255,255,0.03)',
                                 border: '1px solid rgba(255,255,255,0.06)',
                                 transition: 'all 0.3s ease'
@@ -89,26 +90,26 @@ export function BenefitsSection() {
                             {/* Icon */}
                             <div
                                 style={{
-                                    width: '64px',
-                                    height: '64px',
-                                    borderRadius: '16px',
+                                    width: '56px',
+                                    height: '56px',
+                                    borderRadius: '14px',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    marginBottom: '24px',
+                                    marginBottom: '20px',
                                     backgroundColor: 'rgba(252, 115, 66, 0.1)',
                                     color: '#FC7342'
                                 }}
                             >
-                                <benefit.icon size={32} strokeWidth={1.5} />
+                                <benefit.icon size={28} strokeWidth={1.5} />
                             </div>
 
                             {/* Title */}
                             <h3
                                 style={{
-                                    fontSize: '24px',
+                                    fontSize: '20px',
                                     fontWeight: 700,
-                                    marginBottom: '16px',
+                                    marginBottom: '12px',
                                     color: '#FFFFFF'
                                 }}
                             >
@@ -118,7 +119,7 @@ export function BenefitsSection() {
                             {/* Description */}
                             <p
                                 style={{
-                                    fontSize: '16px',
+                                    fontSize: '15px',
                                     lineHeight: 1.7,
                                     color: 'rgba(255,255,255,0.6)'
                                 }}

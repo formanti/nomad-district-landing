@@ -17,7 +17,7 @@ export function OfferSection() {
     return (
         <section
             style={{
-                padding: '100px 0',
+                padding: '60px 0',
                 backgroundColor: '#14181E',
                 position: 'relative',
                 overflow: 'hidden'
@@ -29,8 +29,8 @@ export function OfferSection() {
                     position: 'absolute',
                     top: '50%',
                     right: 0,
-                    width: '400px',
-                    height: '400px',
+                    width: '300px',
+                    height: '300px',
                     borderRadius: '50%',
                     background: 'radial-gradient(circle, rgba(252, 115, 66, 0.12) 0%, transparent 70%)',
                     transform: 'translate(50%, -50%)',
@@ -42,9 +42,9 @@ export function OfferSection() {
             <div
                 style={{
                     width: '100%',
-                    maxWidth: '900px',
+                    maxWidth: '800px',
                     margin: '0 auto',
-                    padding: '0 24px',
+                    padding: '0 16px',
                     position: 'relative',
                     zIndex: 10
                 }}
@@ -55,23 +55,23 @@ export function OfferSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                     style={{
-                        padding: '60px 48px',
-                        borderRadius: '32px',
+                        padding: '32px 24px',
+                        borderRadius: '24px',
                         backgroundColor: 'rgba(255,255,255,0.03)',
                         border: '1px solid rgba(255,255,255,0.08)',
                         backdropFilter: 'blur(20px)'
                     }}
                 >
                     {/* Header */}
-                    <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '32px' }}>
                         <span
                             style={{
                                 display: 'block',
-                                fontSize: '13px',
+                                fontSize: '12px',
                                 fontWeight: 600,
-                                letterSpacing: '0.2em',
+                                letterSpacing: '0.15em',
                                 textTransform: 'uppercase',
-                                marginBottom: '16px',
+                                marginBottom: '12px',
                                 color: '#FC7342'
                             }}
                         >
@@ -79,9 +79,9 @@ export function OfferSection() {
                         </span>
                         <h2
                             style={{
-                                fontSize: 'clamp(28px, 4vw, 44px)',
+                                fontSize: 'clamp(24px, 6vw, 44px)',
                                 fontWeight: 700,
-                                marginBottom: '16px',
+                                marginBottom: '12px',
                                 color: '#FFFFFF'
                             }}
                         >
@@ -90,7 +90,7 @@ export function OfferSection() {
                         </h2>
                         <p
                             style={{
-                                fontSize: '18px',
+                                fontSize: 'clamp(14px, 3vw, 18px)',
                                 color: 'rgba(255,255,255,0.6)'
                             }}
                         >
@@ -98,13 +98,13 @@ export function OfferSection() {
                         </p>
                     </div>
 
-                    {/* Features Grid */}
+                    {/* Features List */}
                     <div
                         style={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                            gap: '20px',
-                            marginBottom: '48px'
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '16px',
+                            marginBottom: '32px'
                         }}
                     >
                         {features.map((feature, index) => (
@@ -117,14 +117,14 @@ export function OfferSection() {
                                 style={{
                                     display: 'flex',
                                     alignItems: 'center',
-                                    gap: '16px'
+                                    gap: '12px'
                                 }}
                             >
                                 <CheckCircle2
-                                    size={24}
+                                    size={22}
                                     style={{ color: '#FC7342', flexShrink: 0 }}
                                 />
-                                <span style={{ fontSize: '16px', color: '#FFFFFF' }}>
+                                <span style={{ fontSize: '15px', color: '#FFFFFF' }}>
                                     {feature}
                                 </span>
                             </motion.div>
@@ -140,9 +140,11 @@ export function OfferSection() {
                                 display: 'inline-flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                padding: '20px 56px',
+                                width: '100%',
+                                maxWidth: '320px',
+                                padding: '18px 40px',
                                 borderRadius: '9999px',
-                                fontSize: '18px',
+                                fontSize: '16px',
                                 fontWeight: 600,
                                 backgroundColor: '#FC7342',
                                 color: '#FFFFFF',
@@ -155,8 +157,8 @@ export function OfferSection() {
                         </Link>
                         <p
                             style={{
-                                marginTop: '20px',
-                                fontSize: '14px',
+                                marginTop: '16px',
+                                fontSize: '13px',
                                 color: 'rgba(255,255,255,0.5)'
                             }}
                         >

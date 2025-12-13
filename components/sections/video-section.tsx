@@ -6,7 +6,7 @@ export function VideoSection() {
     return (
         <section
             style={{
-                padding: '100px 0',
+                padding: '60px 0',
                 backgroundColor: '#14181E',
                 textAlign: 'center'
             }}
@@ -16,7 +16,7 @@ export function VideoSection() {
                     width: '100%',
                     maxWidth: '1000px',
                     margin: '0 auto',
-                    padding: '0 24px'
+                    padding: '0 16px'
                 }}
             >
                 <motion.div
@@ -29,11 +29,11 @@ export function VideoSection() {
                     <span
                         style={{
                             display: 'block',
-                            fontSize: '13px',
+                            fontSize: '12px',
                             fontWeight: 600,
-                            letterSpacing: '0.2em',
+                            letterSpacing: '0.15em',
                             textTransform: 'uppercase',
-                            marginBottom: '16px',
+                            marginBottom: '12px',
                             color: '#FC7342'
                         }}
                     >
@@ -43,10 +43,11 @@ export function VideoSection() {
                     {/* Headline */}
                     <h2
                         style={{
-                            fontSize: 'clamp(28px, 4vw, 48px)',
+                            fontSize: 'clamp(24px, 6vw, 48px)',
                             fontWeight: 700,
-                            marginBottom: '48px',
-                            color: '#FFFFFF'
+                            marginBottom: '32px',
+                            color: '#FFFFFF',
+                            padding: '0 10px'
                         }}
                     >
                         No vendemos cursos,{" "}
@@ -58,12 +59,12 @@ export function VideoSection() {
                         style={{
                             position: 'relative',
                             width: '100%',
-                            paddingBottom: '56.25%', /* 16:9 aspect ratio */
-                            borderRadius: '20px',
+                            paddingBottom: '56.25%',
+                            borderRadius: '16px',
                             overflow: 'hidden',
                             backgroundColor: '#0a0c0f',
                             border: '1px solid rgba(255,255,255,0.1)',
-                            boxShadow: '0 30px 80px rgba(0,0,0,0.5)'
+                            boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
                         }}
                     >
                         <iframe
@@ -84,12 +85,13 @@ export function VideoSection() {
                     {/* Caption */}
                     <p
                         style={{
-                            marginTop: '40px',
-                            maxWidth: '700px',
-                            margin: '40px auto 0 auto',
-                            fontSize: '18px',
+                            marginTop: '24px',
+                            maxWidth: '600px',
+                            margin: '24px auto 0 auto',
+                            fontSize: 'clamp(14px, 3vw, 18px)',
                             lineHeight: 1.7,
-                            color: '#B7B6B6'
+                            color: '#B7B6B6',
+                            padding: '0 10px'
                         }}
                     >
                         Descubre cómo hemos ayudado a más de 350 profesionales a escapar de
