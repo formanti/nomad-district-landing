@@ -1,18 +1,25 @@
 "use client";
 
-import { useEffect } from "react";
+import Script from "next/script";
+
+const GA_MEASUREMENT_ID = "G-32G6EVXGS1";
 
 export function AnalyticsProvider() {
-    useEffect(() => {
-        // Basic Google Tag Manager implementation
-        // Ideally this would be connected to a real ID provided by the user
-        // For now we setup the dataLayer
-        // @ts-ignore
-        window.dataLayer = window.dataLayer || [];
-
-        // Example GTM Script injection could go here, for now it's a placeholder
-        // ensuring the infrastructure is ready.
-    }, []);
-
-    return null;
+    return (
+        <>
+            {/* Google Analytics */}
+            <Script
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+                strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+                {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_MEASUREMENT_ID}');
+        `}
+            </Script>
+        </>
+    );
 }
