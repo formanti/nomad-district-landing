@@ -64,7 +64,7 @@ export function BenefitsSection({
                     <span
                         style={{
                             display: 'block',
-                            fontSize: '12px',
+                            fontSize: '14px',
                             fontWeight: 600,
                             letterSpacing: '0.15em',
                             textTransform: 'uppercase',
