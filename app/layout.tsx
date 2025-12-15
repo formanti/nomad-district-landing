@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Space_Mono } from "next/font/google";
 import { AnalyticsProvider } from "@/components/analytics-provider";
+import { Navbar } from "@/components/navbar";
 import "./globals.css";
 
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         className={`${manrope.variable} ${spaceMono.variable} antialiased bg-background text-foreground`}
       >
         <AnalyticsProvider />
+        <Navbar />
         {children}
       </body>
 
