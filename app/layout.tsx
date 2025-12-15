@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Manrope, Space_Mono } from "next/font/google";
 import { AnalyticsProvider } from "@/components/analytics-provider";
 import { Navbar } from "@/components/navbar";
+import { BuilderRegister } from "@/components/builder-register";
 import "./globals.css";
-
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -31,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${manrope.variable} ${spaceMono.variable} antialiased bg-background text-foreground`}
       >
+        <BuilderRegister />
         <AnalyticsProvider />
         <Navbar />
         {children}

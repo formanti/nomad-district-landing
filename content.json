@@ -1,0 +1,53 @@
+{
+    "hero": {
+        "badge": "Remote Job Academy",
+        "headline": "Encuentra el trabajo remoto",
+        "headlineHighlight": "de tus sueños.",
+        "subheadline": "Sistema claro y accionable.\nPara conseguir tu primer trabajo remoto en dólares.",
+        "ctaPrimary": "Únete al Programa →",
+        "ctaSecondary": "¿Qué ofrecemos?"
+    },
+    "video": {
+        "eyebrow": "¿Qué ofrecemos?",
+        "headline": "Toma el control de tu carrera.",
+        "videoUrl": "https://player.vimeo.com/video/1146233269?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0",
+        "caption": "Descubre cómo hemos ayudado a más de 350 profesionales a escapar de la oficina y construir una vida bajo sus propios términos."
+    },
+    "benefits": {
+        "eyebrow": "¿Por qué elegirnos?",
+        "headline": "Transforma tu carrera profesional",
+        "items": [
+            {
+                "title": "Ganar en Dólares",
+                "description": "Accede a salarios globales sin importar dónde vivas. Multiplica tu poder adquisitivo.",
+                "icon": "DollarSign"
+            },
+            {
+                "title": "Disrupción Personal",
+                "description": "Rompe con el camino tradicional. Tu carrera no tiene por qué ser lineal ni aburrida.",
+                "icon": "Globe2"
+            },
+            {
+                "title": "Comunidad Activa",
+                "description": "Rodéate de personas que están pasando por el mismo proceso que tú.",
+                "icon": "Users"
+            }
+        ]
+    },
+    "offer": {
+        "eyebrow": "La oferta completa",
+        "headline": "Más que una academia,",
+        "headlineHighlight": "un ecosistema.",
+        "subheadline": "Todo lo que necesitas para dar el salto, en un solo lugar.",
+        "features": [
+            "Metodología probada paso a paso",
+            "Preparación de documentos (CV, Cover Letter y LinkedIn)",
+            "Aprende a encontrar los mejores trabajos remotos",
+            "Prepárate para las entrevistas como un pro",
+            "Usa IA para potenciar tu búsqueda",
+            "Sesiones semanales de Q&A en vivo"
+        ],
+        "ctaText": "Únete al Programa →",
+        "disclaimer": "Acceso inmediato • Garantía de satisfacción"
+    }
+}

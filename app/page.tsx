@@ -1,52 +1,53 @@
-import { fetchOneEntry } from "@builder.io/sdk-react";
+import { promises as fs } from 'fs';
+import path from 'path';
 import { HeroSection } from "@/components/sections/hero";
 import { VideoSection } from "@/components/sections/video-section";
 import { BenefitsSection } from "@/components/sections/benefits";
-import { StepsSection } from "@/components/sections/steps";
 import { OfferSection } from "@/components/sections/offer";
 import { Footer } from "@/components/footer";
-import { BuilderPage } from "@/components/builder-page";
 
-const BUILDER_API_KEY = process.env.NEXT_PUBLIC_BUILDER_API_KEY || "";
-
-// Force dynamic rendering to always fetch latest content
+// Force dynamic rendering to always load latest content
 export const dynamic = 'force-dynamic';
 
+async function getContent() {
+  const contentPath = path.join(process.cwd(), 'content.json');
+  const fileContents = await fs.readFile(contentPath, 'utf8');
+  return JSON.parse(fileContents);
+}
+
 export default async function Home() {
-  // Try to fetch content from Builder.io
-  let builderContent = null;
+  const content = await getContent();
 
-  if (BUILDER_API_KEY && BUILDER_API_KEY !== "your-api-key-here") {
-    try {
-      builderContent = await fetchOneEntry({
-        model: "page",
-        apiKey: BUILDER_API_KEY,
-        userAttributes: {
-          urlPath: "/",
-        },
-      });
-    } catch (error) {
-      console.error("Error fetching Builder content:", error);
-    }
-  }
-
-  // If Builder.io content exists, render it
-  if (builderContent) {
-    return (
-      <main className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white">
-        <BuilderPage content={builderContent} apiKey={BUILDER_API_KEY} />
-      </main>
-    );
-  }
-
-  // Fallback: render static components (default behavior)
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white">
-      <HeroSection />
-      <VideoSection />
-      <BenefitsSection />
-      <StepsSection />
-      <OfferSection />
+      <HeroSection
+        badge={content.hero.badge}
+        headline={content.hero.headline}
+        headlineHighlight={content.hero.headlineHighlight}
+        subheadline={content.hero.subheadline}
+        ctaPrimary={content.hero.ctaPrimary}
+        ctaSecondary={content.hero.ctaSecondary}
+      />
+      <VideoSection
+        eyebrow={content.video.eyebrow}
+        headline={content.video.headline}
+        videoUrl={content.video.videoUrl}
+        caption={content.video.caption}
+      />
+      <BenefitsSection
+        eyebrow={content.benefits.eyebrow}
+        headline={content.benefits.headline}
+        benefits={content.benefits.items}
+      />
+      <OfferSection
+        eyebrow={content.offer.eyebrow}
+        headline={content.offer.headline}
+        headlineHighlight={content.offer.headlineHighlight}
+        subheadline={content.offer.subheadline}
+        features={content.offer.features.map((text: string) => ({ text }))}
+        ctaText={content.offer.ctaText}
+        disclaimer={content.offer.disclaimer}
+      />
       <Footer />
     </main>
   );

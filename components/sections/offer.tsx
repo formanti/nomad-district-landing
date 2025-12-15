@@ -161,6 +161,28 @@ export function OfferSection({
                         </div>
                     </div>
 
+                    {/* Pricing */}
+                    <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+                        <p
+                            style={{
+                                fontSize: 'clamp(28px, 5vw, 36px)',
+                                fontWeight: 700,
+                                color: '#FFFFFF',
+                                marginBottom: '4px'
+                            }}
+                        >
+                            Desde <span style={{ color: '#FC7342' }}>$99 USD</span> al año
+                        </p>
+                        <p
+                            style={{
+                                fontSize: '14px',
+                                color: 'rgba(255,255,255,0.5)'
+                            }}
+                        >
+                            Menos de $9 USD al mes
+                        </p>
+                    </div>
+
                     {/* CTA */}
                     <div style={{ textAlign: 'center' }}>
                         <Link

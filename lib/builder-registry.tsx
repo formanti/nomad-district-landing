@@ -1,6 +1,7 @@
 "use client";
 
 import type { RegisteredComponent } from "@builder.io/sdk-react";
+import { register } from "@builder.io/sdk-react";
 
 // Import custom components
 import { HeroSection } from "@/components/sections/hero";
@@ -215,3 +216,20 @@ export const customComponents: RegisteredComponent[] = [
         inputs: [],
     },
 ];
+
+// Register all custom components with Builder.io
+customComponents.forEach((comp) => {
+    register("insertMenu", {
+        name: comp.name,
+        items: [
+            {
+                name: comp.friendlyName || comp.name,
+            },
+        ],
+    });
+});
+
+// Also register as editor settings
+register("editor.settings", {
+    customInsertMenu: true,
+});
