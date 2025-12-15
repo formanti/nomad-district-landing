@@ -1,52 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const steps = [
-    {
-        number: "1",
-        title: "Dale clic en Únete al programa",
-        description: "Haz clic en el botón para comenzar tu transformación."
-    },
-    {
-        number: "2",
-        title: "Entra a nuestra comunidad en Skool",
-        description: "Tendrás acceso a un Classroom con toda nuestra metodología y comunidad."
-    },
-    {
-        number: "3",
-        title: "Toma los módulos del classroom",
-        description: "Aprende a tu ritmo con contenido estructurado paso a paso."
-    },
-    {
-        number: "4",
-        title: "Atiende a nuestras sesiones en vivo",
-        description: "Resuelve tus dudas en tiempo real con expertos."
-    },
-    {
-        number: "5",
-        title: "Aplica los conocimientos",
-        description: "Pon en práctica lo aprendido con ejercicios reales."
-    },
-    {
-        number: "6",
-        title: "Consigue tu trabajo remoto",
-        description: "Alcanza tu objetivo y empieza a trabajar en dólares."
-    },
+    { number: "1", title: "Únete al programa" },
+    { number: "2", title: "Accede a la comunidad" },
+    { number: "3", title: "Toma los módulos" },
+    { number: "4", title: "Sesiones en vivo" },
+    { number: "5", title: "Aplica y consigue" },
 ];
 
 export function StepsSection() {
     return (
         <section
             style={{
-                padding: '80px 0',
-                backgroundColor: '#14181E'
+                padding: '60px 0',
+                backgroundColor: '#0d1015'
             }}
         >
             <div
                 style={{
                     width: '100%',
-                    maxWidth: '900px',
+                    maxWidth: '1100px',
                     margin: '0 auto',
                     padding: '0 20px'
                 }}
@@ -68,86 +44,103 @@ export function StepsSection() {
                     </span>
                     <h2
                         style={{
-                            fontSize: 'clamp(24px, 6vw, 44px)',
+                            fontSize: 'clamp(24px, 5vw, 40px)',
                             fontWeight: 700,
                             color: '#FFFFFF'
                         }}
                     >
-                        El paso a paso para{" "}
-                        <span style={{ color: '#FC7342' }}>entrar al programa</span>
+                        El paso a paso para entrar al programa
                     </h2>
                 </div>
 
-                {/* Steps */}
-                <div
+                {/* Horizontal Steps */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                     style={{
                         display: 'flex',
-                        flexDirection: 'column',
-                        gap: '24px'
+                        flexWrap: 'wrap',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        gap: '16px'
                     }}
                 >
                     {steps.map((step, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
                             style={{
                                 display: 'flex',
-                                alignItems: 'flex-start',
-                                gap: '20px',
-                                padding: '24px',
-                                borderRadius: '16px',
-                                backgroundColor: 'rgba(255,255,255,0.03)',
-                                border: '1px solid rgba(255,255,255,0.06)'
+                                alignItems: 'center',
+                                gap: '16px'
                             }}
                         >
-                            {/* Step Number */}
+                            {/* Step */}
                             <div
                                 style={{
-                                    width: '48px',
-                                    height: '48px',
-                                    borderRadius: '50%',
-                                    backgroundColor: '#FC7342',
                                     display: 'flex',
+                                    flexDirection: 'column',
                                     alignItems: 'center',
-                                    justifyContent: 'center',
-                                    fontSize: '20px',
-                                    fontWeight: 700,
-                                    color: '#FFFFFF',
-                                    flexShrink: 0
+                                    textAlign: 'center',
+                                    minWidth: '120px'
                                 }}
                             >
-                                {step.number}
-                            </div>
-
-                            {/* Content */}
-                            <div style={{ flex: 1 }}>
-                                <h3
+                                {/* Circle with number */}
+                                <div
                                     style={{
-                                        fontSize: '18px',
-                                        fontWeight: 600,
+                                        width: '56px',
+                                        height: '56px',
+                                        borderRadius: '50%',
+                                        border: '2px solid #FC7342',
+                                        backgroundColor: 'transparent',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        fontSize: '20px',
+                                        fontWeight: 700,
+                                        color: '#FC7342',
+                                        marginBottom: '12px'
+                                    }}
+                                >
+                                    {step.number}
+                                </div>
+                                {/* Title */}
+                                <span
+                                    style={{
+                                        fontSize: '14px',
+                                        fontWeight: 500,
                                         color: '#FFFFFF',
-                                        marginBottom: '6px'
+                                        maxWidth: '120px'
                                     }}
                                 >
                                     {step.title}
-                                </h3>
-                                <p
-                                    style={{
-                                        fontSize: '15px',
-                                        color: 'rgba(255,255,255,0.6)',
-                                        lineHeight: 1.5
-                                    }}
-                                >
-                                    {step.description}
-                                </p>
+                                </span>
                             </div>
-                        </motion.div>
+
+                            {/* Arrow (not after last item) */}
+                            {index < steps.length - 1 && (
+                                <ArrowRight
+                                    size={24}
+                                    style={{
+                                        color: 'rgba(255,255,255,0.3)',
+                                        flexShrink: 0
+                                    }}
+                                    className="hidden-mobile"
+                                />
+                            )}
+                        </div>
                     ))}
-                </div>
+                </motion.div>
             </div>
+
+            <style jsx>{`
+                @media (max-width: 768px) {
+                    :global(.hidden-mobile) {
+                        display: none !important;
+                    }
+                }
+            `}</style>
         </section>
     );
 }
