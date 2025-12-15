@@ -174,7 +174,7 @@ export function OfferSection() {
                                 textDecoration: 'none'
                             }}
                         >
-                            Unirse ahora al programa →
+                            Únete al Programa →
                         </Link>
                         <p
                             style={{

@@ -154,7 +154,7 @@ export function HeroSection() {
                                 textDecoration: 'none'
                             }}
                         >
-                            Unirse al programa →
+                            Únete al Programa →
                         </Link>
                         <button
                             id="btn-methodology"
