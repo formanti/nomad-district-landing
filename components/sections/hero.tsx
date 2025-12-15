@@ -4,7 +4,23 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
-export function HeroSection() {
+interface HeroSectionProps {
+    badge?: string;
+    headline?: string;
+    headlineHighlight?: string;
+    subheadline?: string;
+    ctaPrimary?: string;
+    ctaSecondary?: string;
+}
+
+export function HeroSection({
+    badge = "Remote Job Academy",
+    headline = "Encuentra el trabajo remoto",
+    headlineHighlight = "de tus sueños.",
+    subheadline = "Sistema claro y accionable.\nPara conseguir tu primer trabajo remoto en dólares.",
+    ctaPrimary = "Únete al Programa →",
+    ctaSecondary = "¿Qué ofrecemos?",
+}: HeroSectionProps) {
     return (
         <section
             style={{
@@ -74,7 +90,7 @@ export function HeroSection() {
                             color: '#FC7342'
                         }}
                     >
-                        Remote Job Academy
+                        {badge}
                     </span>
 
                     {/* Headline */}
@@ -88,8 +104,8 @@ export function HeroSection() {
                             color: '#FFFFFF'
                         }}
                     >
-                        Encuentra el trabajo remoto{" "}
-                        <span style={{ color: '#FC7342' }}>de tus sueños.</span>
+                        {headline}{" "}
+                        <span style={{ color: '#FC7342' }}>{headlineHighlight}</span>
                     </h1>
 
                     {/* Subheadline */}
@@ -105,8 +121,12 @@ export function HeroSection() {
                             padding: '0 10px'
                         }}
                     >
-                        Sistema claro y accionable.<br />
-                        Para conseguir tu primer trabajo remoto en dólares.
+                        {subheadline.split('\n').map((line, i) => (
+                            <span key={i}>
+                                {line}
+                                {i < subheadline.split('\n').length - 1 && <br />}
+                            </span>
+                        ))}
                     </p>
 
                     {/* CTA Buttons */}
@@ -154,7 +174,7 @@ export function HeroSection() {
                                 textDecoration: 'none'
                             }}
                         >
-                            Únete al Programa →
+                            {ctaPrimary}
                         </Link>
                         <button
                             id="btn-methodology"
@@ -178,7 +198,7 @@ export function HeroSection() {
                                 transition: 'all 0.3s ease'
                             }}
                         >
-                            ¿Qué ofrecemos?
+                            {ctaSecondary}
                         </button>
                     </div>
                 </motion.div>

@@ -2,7 +2,19 @@
 
 import { motion } from "framer-motion";
 
-export function VideoSection() {
+interface VideoSectionProps {
+    eyebrow?: string;
+    headline?: string;
+    videoUrl?: string;
+    caption?: string;
+}
+
+export function VideoSection({
+    eyebrow = "¿Qué ofrecemos?",
+    headline = "Toma el control de tu carrera.",
+    videoUrl = "https://player.vimeo.com/video/1146233269?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0",
+    caption = "Descubre cómo hemos ayudado a más de 350 profesionales a escapar de la oficina y construir una vida bajo sus propios términos.",
+}: VideoSectionProps) {
     return (
         <section
             id="video-section"
@@ -38,7 +50,7 @@ export function VideoSection() {
                             color: '#FC7342'
                         }}
                     >
-                        ¿Qué ofrecemos?
+                        {eyebrow}
                     </span>
 
                     {/* Headline */}
@@ -51,7 +63,7 @@ export function VideoSection() {
                             padding: '0 10px'
                         }}
                     >
-                        Toma el control de tu carrera.
+                        {headline}
                     </h2>
 
                     {/* Vimeo Video Embed */}
@@ -68,7 +80,7 @@ export function VideoSection() {
                         }}
                     >
                         <iframe
-                            src="https://player.vimeo.com/video/1146233269?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0"
+                            src={videoUrl}
                             style={{
                                 position: 'absolute',
                                 top: 0,
@@ -94,8 +106,7 @@ export function VideoSection() {
                             padding: '0 10px'
                         }}
                     >
-                        Descubre cómo hemos ayudado a más de 350 profesionales a escapar de
-                        la oficina y construir una vida bajo sus propios términos.
+                        {caption}
                     </p>
                 </motion.div>
             </div>

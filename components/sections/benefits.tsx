@@ -1,27 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { DollarSign, Globe2, Users } from "lucide-react";
+import { DollarSign, Globe2, Users, LucideIcon } from "lucide-react";
 
-const benefits = [
+const iconMap: Record<string, LucideIcon> = {
+    DollarSign,
+    Globe2,
+    Users,
+};
+
+interface Benefit {
+    title: string;
+    description: string;
+    icon: string;
+}
+
+interface BenefitsSectionProps {
+    eyebrow?: string;
+    headline?: string;
+    benefits?: Benefit[];
+}
+
+const defaultBenefits: Benefit[] = [
     {
         title: "Ganar en Dólares",
         description: "Accede a salarios globales sin importar dónde vivas. Multiplica tu poder adquisitivo.",
-        icon: DollarSign,
+        icon: "DollarSign",
     },
     {
         title: "Disrupción Personal",
         description: "Rompe con el camino tradicional. Tu carrera no tiene por qué ser lineal ni aburrida.",
-        icon: Globe2,
+        icon: "Globe2",
     },
     {
         title: "Comunidad Activa",
         description: "Rodéate de personas que están pasando por el mismo proceso que tú.",
-        icon: Users,
+        icon: "Users",
     },
 ];
 
-export function BenefitsSection() {
+export function BenefitsSection({
+    eyebrow = "¿Por qué elegirnos?",
+    headline = "Transforma tu carrera profesional",
+    benefits = defaultBenefits,
+}: BenefitsSectionProps) {
     return (
         <section
             style={{
@@ -50,7 +72,7 @@ export function BenefitsSection() {
                             color: '#FC7342'
                         }}
                     >
-                        ¿Por qué elegirnos?
+                        {eyebrow}
                     </span>
                     <h2
                         style={{
@@ -60,7 +82,7 @@ export function BenefitsSection() {
                             padding: '0 10px'
                         }}
                     >
-                        Transforma tu carrera profesional
+                        {headline}
                     </h2>
                 </div>
 
@@ -72,62 +94,65 @@ export function BenefitsSection() {
                         gap: '20px'
                     }}
                 >
-                    {benefits.map((benefit, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.15, duration: 0.5 }}
-                            style={{
-                                padding: '28px',
-                                borderRadius: '20px',
-                                backgroundColor: 'rgba(255,255,255,0.03)',
-                                border: '1px solid rgba(255,255,255,0.06)',
-                                transition: 'all 0.3s ease'
-                            }}
-                        >
-                            {/* Icon */}
-                            <div
+                    {benefits.map((benefit, index) => {
+                        const IconComponent = iconMap[benefit.icon] || DollarSign;
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.15, duration: 0.5 }}
                                 style={{
-                                    width: '56px',
-                                    height: '56px',
-                                    borderRadius: '14px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    marginBottom: '20px',
-                                    backgroundColor: 'rgba(252, 115, 66, 0.1)',
-                                    color: '#FC7342'
+                                    padding: '28px',
+                                    borderRadius: '20px',
+                                    backgroundColor: 'rgba(255,255,255,0.03)',
+                                    border: '1px solid rgba(255,255,255,0.06)',
+                                    transition: 'all 0.3s ease'
                                 }}
                             >
-                                <benefit.icon size={28} strokeWidth={1.5} />
-                            </div>
+                                {/* Icon */}
+                                <div
+                                    style={{
+                                        width: '56px',
+                                        height: '56px',
+                                        borderRadius: '14px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        marginBottom: '20px',
+                                        backgroundColor: 'rgba(252, 115, 66, 0.1)',
+                                        color: '#FC7342'
+                                    }}
+                                >
+                                    <IconComponent size={28} strokeWidth={1.5} />
+                                </div>
 
-                            {/* Title */}
-                            <h3
-                                style={{
-                                    fontSize: '20px',
-                                    fontWeight: 700,
-                                    marginBottom: '12px',
-                                    color: '#FFFFFF'
-                                }}
-                            >
-                                {benefit.title}
-                            </h3>
+                                {/* Title */}
+                                <h3
+                                    style={{
+                                        fontSize: '20px',
+                                        fontWeight: 700,
+                                        marginBottom: '12px',
+                                        color: '#FFFFFF'
+                                    }}
+                                >
+                                    {benefit.title}
+                                </h3>
 
-                            {/* Description */}
-                            <p
-                                style={{
-                                    fontSize: '15px',
-                                    lineHeight: 1.7,
-                                    color: 'rgba(255,255,255,0.6)'
-                                }}
-                            >
-                                {benefit.description}
-                            </p>
-                        </motion.div>
-                    ))}
+                                {/* Description */}
+                                <p
+                                    style={{
+                                        fontSize: '15px',
+                                        lineHeight: 1.7,
+                                        color: 'rgba(255,255,255,0.6)'
+                                    }}
+                                >
+                                    {benefit.description}
+                                </p>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

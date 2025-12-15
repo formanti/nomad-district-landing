@@ -4,16 +4,38 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
-const features = [
-    "Metodología probada paso a paso",
-    "Preparación de documentos (CV, Cover Letter y LinkedIn)",
-    "Aprende a encontrar los mejores trabajos remotos",
-    "Prepárate para las entrevistas como un pro",
-    "Usa IA para potenciar tu búsqueda",
-    "Sesiones semanales de Q&A en vivo",
+interface Feature {
+    text: string;
+}
+
+interface OfferSectionProps {
+    eyebrow?: string;
+    headline?: string;
+    headlineHighlight?: string;
+    subheadline?: string;
+    features?: Feature[];
+    ctaText?: string;
+    disclaimer?: string;
+}
+
+const defaultFeatures: Feature[] = [
+    { text: "Metodología probada paso a paso" },
+    { text: "Preparación de documentos (CV, Cover Letter y LinkedIn)" },
+    { text: "Aprende a encontrar los mejores trabajos remotos" },
+    { text: "Prepárate para las entrevistas como un pro" },
+    { text: "Usa IA para potenciar tu búsqueda" },
+    { text: "Sesiones semanales de Q&A en vivo" },
 ];
 
-export function OfferSection() {
+export function OfferSection({
+    eyebrow = "La oferta completa",
+    headline = "Más que una academia,",
+    headlineHighlight = "un ecosistema.",
+    subheadline = "Todo lo que necesitas para dar el salto, en un solo lugar.",
+    features = defaultFeatures,
+    ctaText = "Únete al Programa →",
+    disclaimer = "Acceso inmediato • Garantía de satisfacción",
+}: OfferSectionProps) {
     return (
         <section
             style={{
@@ -75,7 +97,7 @@ export function OfferSection() {
                                 color: '#FC7342'
                             }}
                         >
-                            La oferta completa
+                            {eyebrow}
                         </span>
                         <h2
                             style={{
@@ -85,8 +107,8 @@ export function OfferSection() {
                                 color: '#FFFFFF'
                             }}
                         >
-                            Más que una academia,{" "}
-                            <span style={{ color: '#FC7342' }}>un ecosistema.</span>
+                            {headline}{" "}
+                            <span style={{ color: '#FC7342' }}>{headlineHighlight}</span>
                         </h2>
                         <p
                             style={{
@@ -94,7 +116,7 @@ export function OfferSection() {
                                 color: 'rgba(255,255,255,0.6)'
                             }}
                         >
-                            Todo lo que necesitas para dar el salto, en un solo lugar.
+                            {subheadline}
                         </p>
                     </div>
 
@@ -132,7 +154,7 @@ export function OfferSection() {
                                         style={{ color: '#FC7342', flexShrink: 0 }}
                                     />
                                     <span style={{ fontSize: '15px', color: '#FFFFFF' }}>
-                                        {feature}
+                                        {feature.text}
                                     </span>
                                 </motion.div>
                             ))}
@@ -174,7 +196,7 @@ export function OfferSection() {
                                 textDecoration: 'none'
                             }}
                         >
-                            Únete al Programa →
+                            {ctaText}
                         </Link>
                         <p
                             style={{
@@ -183,7 +205,7 @@ export function OfferSection() {
                                 color: 'rgba(255,255,255,0.5)'
                             }}
                         >
-                            Acceso inmediato • Garantía de satisfacción
+                            {disclaimer}
                         </p>
                     </div>
                 </motion.div>
