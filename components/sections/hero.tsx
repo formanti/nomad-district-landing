@@ -248,7 +248,7 @@ export function HeroSection({
             gap: 16px !important;
           }
           .hero-buttons a, .hero-buttons button {
-            width: auto !important;
+            width: 280px !important;
           }
           .scroll-indicator {
             display: block !important;

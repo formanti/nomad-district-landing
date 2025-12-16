@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/sections/hero";
 import { VideoSection } from "@/components/sections/video-section";
 import { BenefitsSection } from "@/components/sections/benefits";
 import { OfferSection } from "@/components/sections/offer";
+import { Testimonials } from "@/components/sections/testimonials";
 import { Footer } from "@/components/footer";
 
 // Force dynamic rendering to always load latest content
@@ -39,6 +40,7 @@ export default async function Home() {
         headline={content.benefits.headline}
         benefits={content.benefits.items}
       />
+      <Testimonials />
       <OfferSection
         eyebrow={content.offer.eyebrow}
         headline={content.offer.headline}
