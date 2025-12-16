@@ -23,7 +23,7 @@ const TESTIMONIALS = [
     },
     {
         name: 'Valeria de la Torre',
-        title: 'Customer Success Lead',
+        title: 'Customer Success Lead @ SimplyAgree',
         image: '/images/Valeria de la Torre.jpg',
     },
     {
