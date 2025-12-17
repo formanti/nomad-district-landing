@@ -41,6 +41,11 @@ const TESTIMONIALS = [
         title: 'Data & Insights @ FXP',
         image: '/images/Diego Garcia.png',
     },
+    {
+        name: 'Diana Pedroza',
+        title: 'Key Account Manager @ CarbonTech',
+        image: '/images/Diana Pedroza.jpg',
+    },
 ];
 
 // Duplicate the array to ensure seamless infinite scroll
