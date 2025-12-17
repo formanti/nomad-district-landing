@@ -51,15 +51,15 @@ export function Testimonials() {
         <section
             className="overflow-hidden relative"
             style={{
-                paddingTop: '120px',
-                paddingBottom: '120px',
+                paddingTop: '90px',
+                paddingBottom: '90px',
                 backgroundColor: 'var(--background)'
             }}
         >
             <div
                 className="container mx-auto px-4"
                 style={{
-                    marginBottom: '100px'
+                    marginBottom: '60px'
                 }}
             >
                 <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white text-center">Casos de Éxito</h2>
