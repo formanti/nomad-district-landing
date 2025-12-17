@@ -49,7 +49,7 @@ const DOUBLED_TESTIMONIALS = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS]
 export function Testimonials() {
     return (
         <section className="py-24 bg-background overflow-hidden relative">
-            <div className="container mx-auto px-4 mb-20 pt-8">
+            <div className="container mx-auto px-4 mb-32 pt-16">
                 <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white text-center">Casos de Éxito</h2>
                 <p className="text-muted text-lg w-full text-center">
                     Conoce a quienes ya transformaron su carrera con nosotros.
