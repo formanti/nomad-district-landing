@@ -19,6 +19,11 @@ const spaceMono = Space_Mono({
 export const metadata: Metadata = {
   title: "Remote Jobs & AI Academy",
   description: "Encuentra el trabajo remoto de tus sueños. Sistema claro y accionable para conseguir tu primer trabajo remoto en dólares.",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({
