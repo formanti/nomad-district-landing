@@ -43,7 +43,7 @@ const TESTIMONIALS = [
     },
     {
         name: 'Diana Pedroza',
-        title: 'Key Account Manager @ CarbonTech',
+        title: 'Key Account Manager @ CarbonSpaceTech',
         image: '/images/Diana Pedroza.jpg',
     },
 ];
