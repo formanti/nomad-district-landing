@@ -48,8 +48,20 @@ const DOUBLED_TESTIMONIALS = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS]
 
 export function Testimonials() {
     return (
-        <section className="py-32 bg-background overflow-hidden relative">
-            <div className="container mx-auto px-4 mb-48 pt-24">
+        <section
+            className="overflow-hidden relative"
+            style={{
+                paddingTop: '160px',
+                paddingBottom: '160px',
+                backgroundColor: 'var(--background)'
+            }}
+        >
+            <div
+                className="container mx-auto px-4"
+                style={{
+                    marginBottom: '240px'
+                }}
+            >
                 <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white text-center">Casos de Éxito</h2>
                 <p className="text-muted text-lg w-full text-center">
                     Conoce a quienes ya transformaron su carrera con nosotros.
