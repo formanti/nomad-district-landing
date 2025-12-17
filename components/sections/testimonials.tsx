@@ -51,7 +51,7 @@ export function Testimonials() {
         <section
             className="overflow-hidden relative"
             style={{
-                paddingTop: '45px',
+                paddingTop: '80px',
                 paddingBottom: '45px',
                 backgroundColor: 'var(--background)'
             }}
