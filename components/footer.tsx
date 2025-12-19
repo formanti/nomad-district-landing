@@ -2,10 +2,10 @@ export function Footer() {
     return (
         <footer
             style={{
-                padding: '32px 0',
+                padding: '40px 0',
                 textAlign: 'center',
-                borderTop: '1px solid rgba(255,255,255,0.05)',
-                backgroundColor: 'rgba(0,0,0,0.2)'
+                borderTop: '1px solid #E0E0E0',
+                backgroundColor: '#F5F5F0'
             }}
         >
             <div
@@ -16,10 +16,10 @@ export function Footer() {
                     padding: '0 24px'
                 }}
             >
-                <p style={{ fontSize: '14px', color: '#B7B6B6' }}>
+                <p style={{ fontSize: '14px', color: '#666666' }}>
                     &copy; {new Date().getFullYear()} Nomad District. Todos los derechos reservados.
                 </p>
-                <p style={{ marginTop: '8px', fontSize: '12px', color: '#FC7342' }}>
+                <p style={{ marginTop: '8px', fontSize: '12px', color: '#22C55E' }}>
                     Lifestyle as a Service
                 </p>
             </div>

@@ -26,11 +26,11 @@ export function Navbar() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                padding: '20px 24px',
-                background: 'rgba(20, 24, 30, 0.8)',
+                padding: '16px 24px',
+                background: 'rgba(255, 255, 255, 0.9)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+                borderBottom: '1px solid #E5E7EB',
             }}
         >
             <div
@@ -51,14 +51,14 @@ export function Navbar() {
                                 fontSize: '13px',
                                 fontWeight: 600,
                                 letterSpacing: '0.1em',
-                                color: isActive ? '#FC7342' : 'rgba(255, 255, 255, 0.7)',
+                                color: isActive ? '#22C55E' : '#14181E',
                                 textDecoration: 'none',
                                 padding: '8px 0',
                                 transition: 'color 0.3s ease',
                             }}
                         >
                             <motion.span
-                                whileHover={{ color: '#FC7342' }}
+                                whileHover={{ color: '#22C55E' }}
                                 style={{ display: 'inline-block' }}
                             >
                                 {link.label}
@@ -80,9 +80,9 @@ export function Navbar() {
                                     bottom: 0,
                                     left: 0,
                                     height: '2px',
-                                    background: 'linear-gradient(90deg, #FC7342, #FF9A6C)',
+                                    background: 'linear-gradient(90deg, #22C55E, #4ADE80)',
                                     borderRadius: '1px',
-                                    boxShadow: isActive ? '0 0 10px rgba(252, 115, 66, 0.5)' : 'none',
+                                    boxShadow: isActive ? '0 0 10px rgba(34, 197, 94, 0.5)' : 'none',
                                 }}
                             />
                         </Link>

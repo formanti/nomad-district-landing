@@ -3,12 +3,31 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
+// Skool URL
+const SKOOL_URL = "https://www.skool.com/nomad-district/plans";
+
 export function AboutCTA() {
+    const handleCtaClick = () => {
+        if (typeof window !== 'undefined') {
+            // Meta Pixel
+            if ((window as any).fbq) {
+                (window as any).fbq('track', 'InitiateCheckout');
+            }
+            // GA4
+            if ((window as any).gtag) {
+                (window as any).gtag('event', 'initiate_checkout', {
+                    event_category: 'engagement',
+                    event_label: 'about_cta'
+                });
+            }
+        }
+    };
+
     return (
         <section
             style={{
                 padding: '80px 0 100px',
-                background: '#14181E',
+                background: '#F5F5F0', // Skool beige
             }}
         >
             <div className="container">
@@ -28,17 +47,17 @@ export function AboutCTA() {
                         style={{
                             fontSize: 'clamp(24px, 5vw, 36px)',
                             fontWeight: 700,
-                            color: '#FFFFFF',
+                            color: '#1A1A1A',
                             marginBottom: '24px',
                         }}
                     >
                         Por Qué Importa{" "}
-                        <span style={{ color: '#FC7342' }}>Para Ti</span>
+                        <span style={{ color: '#22C55E' }}>Para Ti</span>
                     </h2>
                     <p
                         style={{
                             fontSize: 'clamp(16px, 3vw, 18px)',
-                            color: 'rgba(255, 255, 255, 0.7)',
+                            color: '#666666',
                             lineHeight: 1.7,
                             marginBottom: '20px',
                         }}
@@ -48,7 +67,7 @@ export function AboutCTA() {
                     <p
                         style={{
                             fontSize: 'clamp(16px, 3vw, 18px)',
-                            color: 'rgba(255, 255, 255, 0.7)',
+                            color: '#666666',
                             lineHeight: 1.7,
                         }}
                     >
@@ -63,11 +82,11 @@ export function AboutCTA() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     style={{
-                        background: 'linear-gradient(145deg, rgba(252, 115, 66, 0.1) 0%, rgba(252, 115, 66, 0.05) 100%)',
-                        borderRadius: '24px',
+                        background: '#FFFFFF',
+                        borderRadius: '16px',
                         padding: '48px 32px',
                         textAlign: 'center',
-                        border: '1px solid rgba(252, 115, 66, 0.2)',
+                        border: '1px solid #E0E0E0',
                         maxWidth: '700px',
                         margin: '0 auto',
                     }}
@@ -76,7 +95,7 @@ export function AboutCTA() {
                         style={{
                             fontSize: 'clamp(20px, 4vw, 28px)',
                             fontWeight: 700,
-                            color: '#FFFFFF',
+                            color: '#1A1A1A',
                             marginBottom: '24px',
                             lineHeight: 1.3,
                         }}
@@ -84,34 +103,24 @@ export function AboutCTA() {
                         ¿Listo para aplicar el mismo sistema que ya cambió la vida de cientos de personas?
                     </h3>
                     <Link
-                        href="https://www.skool.com/nomad-district/plans"
+                        href={SKOOL_URL}
                         id="btn-about-cta"
-                        onClick={() => {
-                            // Meta Pixel
-                            if (typeof window !== 'undefined' && (window as any).fbq) {
-                                (window as any).fbq('track', 'InitiateCheckout');
-                            }
-                            // GA4
-                            if (typeof window !== 'undefined' && (window as any).gtag) {
-                                (window as any).gtag('event', 'initiate_checkout', {
-                                    event_category: 'engagement',
-                                    event_label: 'about_cta'
-                                });
-                            }
-                        }}
+                        onClick={handleCtaClick}
                         style={{
                             display: 'inline-flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            padding: '18px 40px',
-                            borderRadius: '9999px',
-                            fontSize: '18px',
-                            fontWeight: 600,
-                            backgroundColor: '#FC7342',
-                            color: '#FFFFFF',
-                            boxShadow: '0 15px 50px rgba(252, 115, 66, 0.35)',
+                            padding: '16px 40px',
+                            borderRadius: '8px',
+                            fontSize: '14px',
+                            fontWeight: 700,
+                            backgroundColor: '#F6E05E',
+                            color: '#1A1A1A',
+                            border: '2px solid #1A1A1A',
                             transition: 'all 0.3s ease',
                             textDecoration: 'none',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.02em',
                         }}
                     >
                         Únete al Programa →

@@ -19,8 +19,8 @@ export function VideoSection({
         <section
             id="video-section"
             style={{
-                padding: '60px 0',
-                backgroundColor: '#14181E',
+                padding: '80px 0',
+                backgroundColor: '#FFFFFF', // White background
                 textAlign: 'center'
             }}
         >
@@ -29,7 +29,7 @@ export function VideoSection({
                     width: '100%',
                     maxWidth: '1000px',
                     margin: '0 auto',
-                    padding: '0 16px'
+                    padding: '0 20px'
                 }}
             >
                 <motion.div
@@ -47,7 +47,7 @@ export function VideoSection({
                             letterSpacing: '0.15em',
                             textTransform: 'uppercase',
                             marginBottom: '12px',
-                            color: '#FC7342'
+                            color: '#22C55E'
                         }}
                     >
                         {eyebrow}
@@ -56,10 +56,10 @@ export function VideoSection({
                     {/* Headline */}
                     <h2
                         style={{
-                            fontSize: 'clamp(24px, 6vw, 48px)',
+                            fontSize: 'clamp(28px, 6vw, 48px)',
                             fontWeight: 700,
                             marginBottom: '32px',
-                            color: '#FFFFFF',
+                            color: '#14181E', // Dark text
                             padding: '0 10px'
                         }}
                     >
@@ -74,9 +74,9 @@ export function VideoSection({
                             paddingBottom: '56.25%',
                             borderRadius: '16px',
                             overflow: 'hidden',
-                            backgroundColor: '#0a0c0f',
-                            border: '1px solid rgba(255,255,255,0.1)',
-                            boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
+                            backgroundColor: '#14181E',
+                            border: '1px solid #E5E7EB',
+                            boxShadow: '0 20px 60px rgba(0,0,0,0.15)'
                         }}
                     >
                         <iframe
@@ -102,7 +102,7 @@ export function VideoSection({
                             margin: '24px auto 0 auto',
                             fontSize: 'clamp(14px, 3vw, 18px)',
                             lineHeight: 1.7,
-                            color: '#B7B6B6',
+                            color: '#6B7280', // Gray text
                             padding: '0 10px'
                         }}
                     >

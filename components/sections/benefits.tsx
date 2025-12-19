@@ -47,8 +47,8 @@ export function BenefitsSection({
     return (
         <section
             style={{
-                padding: '60px 0',
-                backgroundColor: '#0d1015'
+                padding: '80px 0',
+                backgroundColor: '#F8F7F4' // Light beige
             }}
         >
             <div
@@ -56,11 +56,11 @@ export function BenefitsSection({
                     width: '100%',
                     maxWidth: '1200px',
                     margin: '0 auto',
-                    padding: '0 16px'
+                    padding: '0 20px'
                 }}
             >
                 {/* Section Header */}
-                <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                <div style={{ textAlign: 'center', marginBottom: '48px' }}>
                     <span
                         style={{
                             display: 'block',
@@ -69,16 +69,16 @@ export function BenefitsSection({
                             letterSpacing: '0.15em',
                             textTransform: 'uppercase',
                             marginBottom: '12px',
-                            color: '#FC7342'
+                            color: '#22C55E'
                         }}
                     >
                         {eyebrow}
                     </span>
                     <h2
                         style={{
-                            fontSize: 'clamp(24px, 6vw, 48px)',
+                            fontSize: 'clamp(28px, 6vw, 48px)',
                             fontWeight: 700,
-                            color: '#FFFFFF',
+                            color: '#14181E', // Dark text
                             padding: '0 10px'
                         }}
                     >
@@ -91,7 +91,7 @@ export function BenefitsSection({
                     style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                        gap: '20px'
+                        gap: '24px'
                     }}
                 >
                     {benefits.map((benefit, index) => {
@@ -104,10 +104,11 @@ export function BenefitsSection({
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.15, duration: 0.5 }}
                                 style={{
-                                    padding: '28px',
+                                    padding: '32px',
                                     borderRadius: '20px',
-                                    backgroundColor: 'rgba(255,255,255,0.03)',
-                                    border: '1px solid rgba(255,255,255,0.06)',
+                                    backgroundColor: '#FFFFFF', // White cards
+                                    border: '1px solid #E5E7EB',
+                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
                                     transition: 'all 0.3s ease'
                                 }}
                             >
@@ -121,8 +122,8 @@ export function BenefitsSection({
                                         alignItems: 'center',
                                         justifyContent: 'center',
                                         marginBottom: '20px',
-                                        backgroundColor: 'rgba(252, 115, 66, 0.1)',
-                                        color: '#FC7342'
+                                        backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                                        color: '#22C55E'
                                     }}
                                 >
                                     <IconComponent size={28} strokeWidth={1.5} />
@@ -134,7 +135,7 @@ export function BenefitsSection({
                                         fontSize: '20px',
                                         fontWeight: 700,
                                         marginBottom: '12px',
-                                        color: '#FFFFFF'
+                                        color: '#14181E' // Dark text
                                     }}
                                 >
                                     {benefit.title}
@@ -145,7 +146,7 @@ export function BenefitsSection({
                                     style={{
                                         fontSize: '15px',
                                         lineHeight: 1.7,
-                                        color: 'rgba(255,255,255,0.6)'
+                                        color: '#6B7280' // Gray text
                                     }}
                                 >
                                     {benefit.description}

@@ -10,7 +10,7 @@ export function AboutHero() {
                 width: '100%',
                 paddingTop: '140px',
                 paddingBottom: '80px',
-                background: 'linear-gradient(180deg, #14181E 0%, #1a1f27 100%)',
+                background: '#F5F5F0',
             }}
         >
             <div className="container" style={{ textAlign: 'center' }}>
@@ -30,9 +30,9 @@ export function AboutHero() {
                             letterSpacing: '0.12em',
                             textTransform: 'uppercase',
                             marginBottom: '24px',
-                            background: 'rgba(252, 115, 66, 0.15)',
-                            border: '1px solid rgba(252, 115, 66, 0.3)',
-                            color: '#FC7342'
+                            background: 'rgba(34, 197, 94, 0.15)',
+                            border: '1px solid rgba(34, 197, 94, 0.4)',
+                            color: '#22C55E'
                         }}
                     >
                         Nomad District
@@ -45,11 +45,11 @@ export function AboutHero() {
                             fontWeight: 700,
                             lineHeight: 1.15,
                             marginBottom: '24px',
-                            color: '#FFFFFF'
+                            color: '#1A1A1A'
                         }}
                     >
                         Quiénes{" "}
-                        <span style={{ color: '#FC7342' }}>Somos</span>
+                        <span style={{ color: '#22C55E' }}>Somos</span>
                     </h1>
 
                     {/* Intro text */}
@@ -58,7 +58,7 @@ export function AboutHero() {
                             fontSize: 'clamp(16px, 3vw, 20px)',
                             maxWidth: '800px',
                             margin: '0 auto',
-                            color: 'rgba(255, 255, 255, 0.7)',
+                            color: '#666666',
                             lineHeight: 1.7,
                         }}
                     >
@@ -73,7 +73,7 @@ export function AboutHero() {
                             fontSize: 'clamp(15px, 2.5vw, 18px)',
                             maxWidth: '800px',
                             margin: '24px auto 0',
-                            color: 'rgba(255, 255, 255, 0.6)',
+                            color: '#666666',
                             lineHeight: 1.7,
                         }}
                     >

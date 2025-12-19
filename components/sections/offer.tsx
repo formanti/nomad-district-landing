@@ -1,237 +1,330 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ShieldCheck } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
-interface Feature {
-    text: string;
-}
+// Skool URL
+const SKOOL_URL = "https://www.skool.com/nomad-district/plans";
+
+// Plan features matching Skool exactly
+const standardFeatures = [
+    "Método paso a paso para conseguir un trabajo remoto",
+    "CV, Cover Letter y LinkedIn listos para aplicar",
+    "Trucos y preparación para entrevistas",
+    "Conoce las mejores bolsas de trabajo remoto",
+    "Guía práctica del proceso de aplicación",
+];
+
+const premiumFeatures = [
+    "Todo del Plan Standard +",
+    "Sesión 1-1 para ajustar tu estrategia completa",
+    "Revisión personalizada de tu CV, Cover Letter y LinkedIn",
+    "Vacantes seleccionadas para para tu perfil",
+    "Soporte directo para resolver dudas rápido",
+    "Seguimiento semanal de tu proceso de aplicación",
+];
+
+const vipFeatures = [
+    "Todo del Premium +",
+    "1 sesión a la semana por 3 meses",
+    "Acompañamiento personalizado",
+    "Buscamos vacantes por tí (5 semanales)",
+    "Lifetime access a la comunidad",
+];
 
 interface OfferSectionProps {
     eyebrow?: string;
     headline?: string;
     headlineHighlight?: string;
     subheadline?: string;
-    features?: Feature[];
-    ctaText?: string;
-    disclaimer?: string;
 }
-
-const defaultFeatures: Feature[] = [
-    { text: "Metodología probada paso a paso" },
-    { text: "Preparación de documentos (CV, Cover Letter y LinkedIn)" },
-    { text: "Aprende a encontrar los mejores trabajos remotos" },
-    { text: "Prepárate para las entrevistas como un pro" },
-    { text: "Usa IA para potenciar tu búsqueda" },
-    { text: "Sesiones semanales de Q&A en vivo" },
-];
 
 export function OfferSection({
     eyebrow = "La oferta completa",
     headline = "Más que una academia,",
     headlineHighlight = "un ecosistema.",
     subheadline = "Todo lo que necesitas para dar el salto, en un solo lugar.",
-    features = defaultFeatures,
-    ctaText = "Únete al Programa →",
-    disclaimer = "Acceso inmediato • Garantía de satisfacción",
 }: OfferSectionProps) {
+
+    // Track clicks for analytics
+    const handleCtaClick = (plan: string) => {
+        if (typeof window !== 'undefined') {
+            // Meta Pixel
+            if ((window as any).fbq) {
+                (window as any).fbq('track', 'InitiateCheckout');
+            }
+            // GA4
+            if ((window as any).gtag) {
+                (window as any).gtag('event', 'initiate_checkout', {
+                    event_category: 'engagement',
+                    event_label: `offer_${plan}`
+                });
+            }
+        }
+    };
+
     return (
         <section
             style={{
-                padding: '60px 0',
-                backgroundColor: '#14181E',
+                padding: '80px 0',
+                backgroundColor: '#F5F5F0', // Skool beige
                 position: 'relative',
                 overflow: 'hidden'
             }}
         >
-            {/* Decorative gradient */}
-            <div
-                style={{
-                    position: 'absolute',
-                    top: '50%',
-                    right: 0,
-                    width: '300px',
-                    height: '300px',
-                    borderRadius: '50%',
-                    background: 'radial-gradient(circle, rgba(252, 115, 66, 0.12) 0%, transparent 70%)',
-                    transform: 'translate(50%, -50%)',
-                    filter: 'blur(60px)',
-                    pointerEvents: 'none'
-                }}
-            />
-
             <div
                 style={{
                     width: '100%',
-                    maxWidth: '800px',
+                    maxWidth: '1000px',
                     margin: '0 auto',
-                    padding: '0 16px',
+                    padding: '0 20px',
                     position: 'relative',
                     zIndex: 10
                 }}
             >
+                {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    style={{
-                        padding: '32px 24px',
-                        borderRadius: '24px',
-                        backgroundColor: 'rgba(255,255,255,0.03)',
-                        border: '1px solid rgba(255,255,255,0.08)',
-                        backdropFilter: 'blur(20px)'
-                    }}
+                    style={{ textAlign: 'center', marginBottom: '48px' }}
                 >
-                    {/* Header */}
-                    <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-                        <span
-                            style={{
-                                display: 'block',
-                                fontSize: '14px',
-                                fontWeight: 600,
-                                letterSpacing: '0.15em',
-                                textTransform: 'uppercase',
-                                marginBottom: '12px',
-                                color: '#FC7342'
-                            }}
-                        >
-                            {eyebrow}
-                        </span>
-                        <h2
-                            style={{
-                                fontSize: 'clamp(24px, 6vw, 44px)',
-                                fontWeight: 700,
-                                marginBottom: '12px',
-                                color: '#FFFFFF'
-                            }}
-                        >
-                            {headline}{" "}
-                            <span style={{ color: '#FC7342' }}>{headlineHighlight}</span>
-                        </h2>
-                        <p
-                            style={{
-                                fontSize: 'clamp(14px, 3vw, 18px)',
-                                color: 'rgba(255,255,255,0.6)'
-                            }}
-                        >
-                            {subheadline}
-                        </p>
-                    </div>
-
-                    {/* Features List */}
-                    <div
+                    <h2
                         style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            marginBottom: '32px'
+                            fontSize: 'clamp(28px, 6vw, 40px)',
+                            fontWeight: 700,
+                            marginBottom: '12px',
+                            color: '#1A1A1A'
                         }}
                     >
-                        <div
-                            style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '16px',
-                                alignItems: 'flex-start'
-                            }}
-                        >
-                            {features.map((feature, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1, duration: 0.4 }}
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '12px'
-                                    }}
-                                >
-                                    <CheckCircle2
-                                        size={22}
-                                        style={{ color: '#FC7342', flexShrink: 0 }}
-                                    />
-                                    <span style={{ fontSize: '15px', color: '#FFFFFF' }}>
-                                        {feature.text}
-                                    </span>
-                                </motion.div>
+                        Selecciona tu plan
+                    </h2>
+                    <p style={{ fontSize: '14px', color: '#666666', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', flexWrap: 'wrap' }}>
+                        🎓 Nuestra comunidad vive en{" "}
+                        <Image src="/images/skool-logo.png" alt="Skool" width={60} height={20} style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+                        . Al hacer clic serás redirigido a nuestra plataforma.
+                    </p>
+                </motion.div>
+
+                {/* Pricing Cards */}
+                <div
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(3, 1fr)',
+                        gap: '24px',
+                        marginBottom: '32px'
+                    }}
+                >
+                    {/* Standard Plan */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        style={{
+                            backgroundColor: '#FFFFFF',
+                            borderRadius: '12px',
+                            padding: '32px 24px',
+                            border: '1px solid #E0E0E0',
+                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+                            display: 'flex',
+                            flexDirection: 'column'
+                        }}
+                    >
+                        <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+                            <p style={{ fontSize: '36px', fontWeight: 700, color: '#1A1A1A' }}>
+                                $99<span style={{ fontSize: '16px', fontWeight: 400, color: '#666666' }}>/year</span>
+                            </p>
+                            <p style={{ fontSize: '18px', fontWeight: 600, color: '#1A1A1A', marginTop: '4px' }}>
+                                Standard
+                            </p>
+                        </div>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '28px', flex: 1 }}>
+                            {standardFeatures.map((feature, index) => (
+                                <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                                    <CheckCircle2 size={20} style={{ color: '#22C55E', flexShrink: 0, marginTop: '2px' }} />
+                                    <span style={{ fontSize: '14px', color: '#444444', lineHeight: 1.5 }}>{feature}</span>
+                                </div>
                             ))}
                         </div>
-                    </div>
 
-                    {/* Pricing */}
-                    <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-                        <p
-                            style={{
-                                fontSize: 'clamp(28px, 5vw, 36px)',
-                                fontWeight: 700,
-                                color: '#FFFFFF',
-                                marginBottom: '4px'
-                            }}
-                        >
-                            Desde <span style={{ color: '#FC7342' }}>$99 USD</span> al año
-                        </p>
-                        <p
-                            style={{
-                                fontSize: '14px',
-                                color: 'rgba(255,255,255,0.5)'
-                            }}
-                        >
-                            Menos de $9 USD al mes
-                        </p>
-                    </div>
-
-                    {/* CTA */}
-                    <div style={{ textAlign: 'center' }}>
                         <Link
-                            href="https://www.skool.com/nomad-district/plans"
-                            id="btn-join-offer"
-                            onClick={() => {
-                                // Meta Pixel
-                                if (typeof window !== 'undefined' && (window as any).fbq) {
-                                    (window as any).fbq('track', 'InitiateCheckout');
-                                }
-                                // GA4
-                                if (typeof window !== 'undefined' && (window as any).gtag) {
-                                    (window as any).gtag('event', 'initiate_checkout', {
-                                        event_category: 'engagement',
-                                        event_label: 'offer_cta'
-                                    });
-                                }
-                            }}
+                            href={SKOOL_URL}
+                            onClick={() => handleCtaClick('standard')}
                             style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
+                                display: 'block',
                                 width: '100%',
-                                maxWidth: '320px',
-                                padding: '18px 40px',
-                                borderRadius: '9999px',
-                                fontSize: '16px',
-                                fontWeight: 600,
-                                backgroundColor: '#FC7342',
-                                color: '#FFFFFF',
-                                boxShadow: '0 20px 60px rgba(252, 115, 66, 0.35)',
-                                transition: 'all 0.3s ease',
-                                textDecoration: 'none'
+                                padding: '14px 24px',
+                                fontSize: '14px',
+                                fontWeight: 700,
+                                color: '#1A1A1A',
+                                backgroundColor: '#F6E05E',
+                                border: '2px solid #1A1A1A',
+                                borderRadius: '8px',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.02em',
+                                textAlign: 'center',
+                                textDecoration: 'none',
+                                marginTop: 'auto'
                             }}
                         >
-                            {ctaText}
+                            Join Standard
                         </Link>
-                        <p
+                    </motion.div>
+
+                    {/* Premium Plan */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        style={{
+                            backgroundColor: '#FFFFFF',
+                            borderRadius: '12px',
+                            padding: '32px 24px',
+                            border: '1px solid #E0E0E0',
+                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+                            display: 'flex',
+                            flexDirection: 'column'
+                        }}
+                    >
+                        <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+                            <p style={{ fontSize: '36px', fontWeight: 700, color: '#1A1A1A' }}>
+                                $199<span style={{ fontSize: '16px', fontWeight: 400, color: '#666666' }}>/year</span>
+                            </p>
+                            <p style={{ fontSize: '18px', fontWeight: 600, color: '#1A1A1A', marginTop: '4px' }}>
+                                Premium
+                            </p>
+                        </div>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '28px', flex: 1 }}>
+                            {premiumFeatures.map((feature, index) => (
+                                <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                                    <CheckCircle2 size={20} style={{ color: '#22C55E', flexShrink: 0, marginTop: '2px' }} />
+                                    <span style={{ fontSize: '14px', color: '#444444', lineHeight: 1.5 }}>{feature}</span>
+                                </div>
+                            ))}
+                        </div>
+
+                        <Link
+                            href={SKOOL_URL}
+                            onClick={() => handleCtaClick('premium')}
                             style={{
-                                marginTop: '16px',
-                                fontSize: '13px',
-                                color: 'rgba(255,255,255,0.5)'
+                                display: 'block',
+                                width: '100%',
+                                padding: '14px 24px',
+                                fontSize: '14px',
+                                fontWeight: 700,
+                                color: '#1A1A1A',
+                                backgroundColor: '#F6E05E',
+                                border: '2px solid #1A1A1A',
+                                borderRadius: '8px',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.02em',
+                                textAlign: 'center',
+                                textDecoration: 'none',
+                                marginTop: 'auto'
                             }}
                         >
-                            {disclaimer}
-                        </p>
-                    </div>
+                            Join Premium
+                        </Link>
+                    </motion.div>
+
+                    {/* VIP Plan */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        style={{
+                            backgroundColor: '#FFFFFF',
+                            borderRadius: '12px',
+                            padding: '32px 24px',
+                            border: '1px solid #E0E0E0',
+                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+                            display: 'flex',
+                            flexDirection: 'column'
+                        }}
+                    >
+                        <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+                            <p style={{ fontSize: '36px', fontWeight: 700, color: '#1A1A1A' }}>
+                                $649<span style={{ fontSize: '16px', fontWeight: 400, color: '#666666' }}>/year</span>
+                            </p>
+                            <p style={{ fontSize: '18px', fontWeight: 600, color: '#1A1A1A', marginTop: '4px' }}>
+                                VIP
+                            </p>
+                        </div>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '28px', flex: 1 }}>
+                            {vipFeatures.map((feature, index) => (
+                                <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                                    <CheckCircle2 size={20} style={{ color: '#22C55E', flexShrink: 0, marginTop: '2px' }} />
+                                    <span style={{ fontSize: '14px', color: '#444444', lineHeight: 1.5 }}>{feature}</span>
+                                </div>
+                            ))}
+                        </div>
+
+                        <Link
+                            href={SKOOL_URL}
+                            onClick={() => handleCtaClick('vip')}
+                            style={{
+                                display: 'block',
+                                width: '100%',
+                                padding: '14px 24px',
+                                fontSize: '14px',
+                                fontWeight: 700,
+                                color: '#1A1A1A',
+                                backgroundColor: '#F6E05E',
+                                border: '2px solid #1A1A1A',
+                                borderRadius: '8px',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.02em',
+                                textAlign: 'center',
+                                textDecoration: 'none',
+                                marginTop: 'auto'
+                            }}
+                        >
+                            Join VIP
+                        </Link>
+                    </motion.div>
+                </div>
+
+                {/* 30-Day Satisfaction Guarantee */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '12px',
+                        padding: '20px 28px',
+                        backgroundColor: '#FFFFFF',
+                        borderRadius: '12px',
+                        border: '2px solid #22C55E',
+                        maxWidth: '600px',
+                        margin: '0 auto 16px auto'
+                    }}
+                >
+                    <ShieldCheck size={28} style={{ color: '#22C55E', flexShrink: 0 }} />
+                    <p style={{ fontSize: '15px', color: '#1A1A1A', textAlign: 'left', lineHeight: 1.5, fontWeight: 500 }}>
+                        <strong>Garantía de satisfacción:</strong> Si en los primeros 30 días no estás 100% satisfecho, te devolvemos tu dinero sin preguntas.
+                    </p>
                 </motion.div>
             </div>
         </section>
     );
 }
+

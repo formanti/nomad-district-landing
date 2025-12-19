@@ -26,8 +26,6 @@ export default async function Home() {
         headline={content.hero.headline}
         headlineHighlight={content.hero.headlineHighlight}
         subheadline={content.hero.subheadline}
-        ctaPrimary={content.hero.ctaPrimary}
-        ctaSecondary={content.hero.ctaSecondary}
       />
       <VideoSection
         eyebrow={content.video.eyebrow}
@@ -46,9 +44,6 @@ export default async function Home() {
         headline={content.offer.headline}
         headlineHighlight={content.offer.headlineHighlight}
         subheadline={content.offer.subheadline}
-        features={content.offer.features.map((text: string) => ({ text }))}
-        ctaText={content.offer.ctaText}
-        disclaimer={content.offer.disclaimer}
       />
       <Footer />
     </main>

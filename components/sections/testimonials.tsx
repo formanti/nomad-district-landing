@@ -3,7 +3,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
 
 const TESTIMONIALS = [
     {
@@ -57,27 +56,41 @@ export function Testimonials() {
             className="overflow-hidden relative"
             style={{
                 paddingTop: '80px',
-                paddingBottom: '45px',
-                backgroundColor: 'var(--background)'
+                paddingBottom: '60px',
+                backgroundColor: '#FFFFFF' // White background
             }}
         >
             <div
                 className="container mx-auto px-4"
                 style={{
-                    marginBottom: '30px'
+                    marginBottom: '40px'
                 }}
             >
-                <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white text-center">Casos de Éxito</h2>
-                <p className="text-muted text-lg w-full text-center">
+                <h2
+                    className="text-3xl md:text-5xl font-bold mb-8 text-center"
+                    style={{ color: '#14181E' }}
+                >
+                    Casos de Éxito
+                </h2>
+                <p
+                    className="text-lg w-full text-center"
+                    style={{ color: '#6B7280' }}
+                >
                     Conoce a quienes ya transformaron su carrera con nosotros.
                 </p>
             </div>
 
             {/* Marquee Container */}
-            <div className="relative w-full overflow-hidden mask-linear-gradient">
-                {/* Gradient Masks for edges */}
-                <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#14181E] to-transparent pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#14181E] to-transparent pointer-events-none" />
+            <div className="relative w-full overflow-hidden">
+                {/* Gradient Masks for edges - now white gradients */}
+                <div
+                    className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+                    style={{ background: 'linear-gradient(to right, #FFFFFF, transparent)' }}
+                />
+                <div
+                    className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+                    style={{ background: 'linear-gradient(to left, #FFFFFF, transparent)' }}
+                />
 
                 <motion.div
                     className="flex gap-6 w-max pl-8"
@@ -96,7 +109,11 @@ export function Testimonials() {
                     {DOUBLED_TESTIMONIALS.map((person, index) => (
                         <div
                             key={`${person.name}-${index}`}
-                            className="relative w-[280px] h-[450px] md:w-[320px] md:h-[500px] shrink-0 rounded-2xl overflow-hidden group cursor-pointer border border-white/5"
+                            className="relative w-[280px] h-[450px] md:w-[320px] md:h-[500px] shrink-0 rounded-2xl overflow-hidden group cursor-pointer"
+                            style={{
+                                border: '1px solid #E5E7EB',
+                                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+                            }}
                         >
                             {/* Background Image */}
                             <Image

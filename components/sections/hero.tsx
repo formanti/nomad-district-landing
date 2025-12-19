@@ -2,25 +2,38 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
+
+// Skool URL
+const SKOOL_URL = "https://www.skool.com/nomad-district/plans";
 
 interface HeroSectionProps {
     badge?: string;
     headline?: string;
     headlineHighlight?: string;
     subheadline?: string;
-    ctaPrimary?: string;
-    ctaSecondary?: string;
 }
 
 export function HeroSection({
     badge = "Remote Job Academy",
-    headline = "Encuentra el trabajo remoto",
-    headlineHighlight = "de tus sueños.",
-    subheadline = "Sistema claro y accionable.\nPara conseguir tu primer trabajo remoto en dólares.",
-    ctaPrimary = "Únete al Programa →",
-    ctaSecondary = "¿Qué ofrecemos?",
+    headline = "Consigue un trabajo remoto",
+    headlineHighlight = "con sueldo en dólares.",
+    subheadline = "Método probado y garantizado.\nEl sistema que funcionó para 350+ personas como tú.",
 }: HeroSectionProps) {
+
+    const handleCtaClick = () => {
+        if (typeof window !== 'undefined') {
+            if ((window as any).fbq) {
+                (window as any).fbq('track', 'InitiateCheckout');
+            }
+            if ((window as any).gtag) {
+                (window as any).gtag('event', 'initiate_checkout', {
+                    event_category: 'engagement',
+                    event_label: 'hero_cta'
+                });
+            }
+        }
+    };
+
     return (
         <section
             style={{
@@ -31,29 +44,63 @@ export function HeroSection({
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'hidden',
-                padding: '80px 0 40px 0'
+                padding: '80px 0 60px 0',
+                backgroundColor: '#F5F5F0'
             }}
         >
-            {/* Background Image */}
-            <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-                <Image
-                    src="/images/hero-onbab.jpg"
-                    alt="Remote Work Lifestyle"
-                    fill
-                    style={{ objectFit: 'cover', objectPosition: 'center' }}
-                    priority
-                    sizes="100vw"
-                    quality={90}
-                />
-                {/* Overlay */}
-                <div
-                    style={{
-                        position: 'absolute',
-                        inset: 0,
-                        background: 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(20,24,30,0.85) 60%, #14181E 100%)'
-                    }}
-                />
-            </div>
+            {/* Subtle gradient background */}
+            <div
+                style={{
+                    position: 'absolute',
+                    inset: 0,
+                    zIndex: 0,
+                    background: 'radial-gradient(ellipse at 60% 40%, rgba(34, 197, 94, 0.08) 0%, transparent 50%), radial-gradient(ellipse at 40% 60%, rgba(246, 224, 94, 0.08) 0%, transparent 50%)'
+                }}
+            />
+
+            {/* Floating animated circles as subtle decoration */}
+            <motion.div
+                animate={{
+                    y: [0, -15, 0],
+                    rotate: [0, 360],
+                }}
+                transition={{
+                    duration: 30,
+                    repeat: Infinity,
+                    ease: "linear"
+                }}
+                style={{
+                    position: 'absolute',
+                    top: '10%',
+                    right: '15%',
+                    width: '250px',
+                    height: '250px',
+                    borderRadius: '50%',
+                    border: '1px solid rgba(34, 197, 94, 0.15)',
+                    zIndex: 1
+                }}
+            />
+            <motion.div
+                animate={{
+                    y: [0, 12, 0],
+                    rotate: [360, 0],
+                }}
+                transition={{
+                    duration: 35,
+                    repeat: Infinity,
+                    ease: "linear"
+                }}
+                style={{
+                    position: 'absolute',
+                    bottom: '15%',
+                    left: '10%',
+                    width: '180px',
+                    height: '180px',
+                    borderRadius: '50%',
+                    border: '1px solid rgba(246, 224, 94, 0.2)',
+                    zIndex: 1
+                }}
+            />
 
             {/* Content */}
             <div
@@ -85,9 +132,9 @@ export function HeroSection({
                             letterSpacing: '0.12em',
                             textTransform: 'uppercase',
                             marginBottom: '24px',
-                            background: 'rgba(252, 115, 66, 0.15)',
-                            border: '1px solid rgba(252, 115, 66, 0.3)',
-                            color: '#FC7342'
+                            background: 'rgba(34, 197, 94, 0.15)',
+                            border: '1px solid rgba(34, 197, 94, 0.4)',
+                            color: '#22C55E'
                         }}
                     >
                         {badge}
@@ -97,15 +144,15 @@ export function HeroSection({
                     <h1
                         className="hero-headline"
                         style={{
-                            fontSize: 'clamp(28px, 8vw, 64px)',
+                            fontSize: 'clamp(32px, 8vw, 64px)',
                             fontWeight: 700,
                             lineHeight: 1.15,
                             marginBottom: '20px',
-                            color: '#FFFFFF'
+                            color: '#1A1A1A'
                         }}
                     >
                         {headline}{" "}
-                        <span style={{ color: '#FC7342' }}>{headlineHighlight}</span>
+                        <span style={{ color: '#22C55E' }}>{headlineHighlight}</span>
                     </h1>
 
                     {/* Subheadline */}
@@ -116,7 +163,7 @@ export function HeroSection({
                             marginBottom: '32px',
                             maxWidth: '600px',
                             margin: '0 auto 32px auto',
-                            color: 'rgba(255,255,255,0.7)',
+                            color: '#666666',
                             lineHeight: 1.6,
                             padding: '0 10px'
                         }}
@@ -142,21 +189,9 @@ export function HeroSection({
                         }}
                     >
                         <Link
-                            href="https://www.skool.com/nomad-district/plans"
+                            href={SKOOL_URL}
                             id="btn-join-hero"
-                            onClick={() => {
-                                // Meta Pixel
-                                if (typeof window !== 'undefined' && (window as any).fbq) {
-                                    (window as any).fbq('track', 'InitiateCheckout');
-                                }
-                                // GA4
-                                if (typeof window !== 'undefined' && (window as any).gtag) {
-                                    (window as any).gtag('event', 'initiate_checkout', {
-                                        event_category: 'engagement',
-                                        event_label: 'hero_cta'
-                                    });
-                                }
-                            }}
+                            onClick={handleCtaClick}
                             style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',
@@ -164,17 +199,19 @@ export function HeroSection({
                                 width: '100%',
                                 maxWidth: '320px',
                                 padding: '16px 32px',
-                                borderRadius: '9999px',
-                                fontSize: '16px',
-                                fontWeight: 600,
-                                backgroundColor: '#FC7342',
-                                color: '#FFFFFF',
-                                boxShadow: '0 15px 50px rgba(252, 115, 66, 0.35)',
+                                borderRadius: '8px',
+                                fontSize: '14px',
+                                fontWeight: 700,
+                                backgroundColor: '#F6E05E',
+                                color: '#1A1A1A',
+                                border: '2px solid #1A1A1A',
                                 transition: 'all 0.3s ease',
-                                textDecoration: 'none'
+                                textDecoration: 'none',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.02em'
                             }}
                         >
-                            {ctaPrimary}
+                            Únete al Programa →
                         </Link>
                         <button
                             id="btn-methodology"
@@ -188,23 +225,25 @@ export function HeroSection({
                                 width: '100%',
                                 maxWidth: '320px',
                                 padding: '16px 32px',
-                                borderRadius: '9999px',
-                                fontSize: '16px',
-                                fontWeight: 500,
-                                backgroundColor: 'transparent',
-                                color: '#FFFFFF',
-                                border: '2px solid rgba(255,255,255,0.3)',
+                                borderRadius: '8px',
+                                fontSize: '14px',
+                                fontWeight: 600,
+                                backgroundColor: 'rgba(255,255,255,0.8)',
+                                color: '#1A1A1A',
+                                border: '2px solid #1A1A1A',
                                 cursor: 'pointer',
-                                transition: 'all 0.3s ease'
+                                transition: 'all 0.3s ease',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.02em'
                             }}
                         >
-                            {ctaSecondary}
+                            ¿Qué ofrecemos?
                         </button>
                     </div>
                 </motion.div>
             </div>
 
-            {/* Scroll Indicator - Hidden on mobile */}
+            {/* Scroll Indicator */}
             <motion.div
                 className="scroll-indicator"
                 style={{
@@ -224,7 +263,7 @@ export function HeroSection({
                         width: '28px',
                         height: '48px',
                         borderRadius: '9999px',
-                        border: '2px solid rgba(255,255,255,0.25)',
+                        border: '2px solid rgba(26,26,26,0.25)',
                         display: 'flex',
                         justifyContent: 'center',
                         paddingTop: '8px'
@@ -235,7 +274,7 @@ export function HeroSection({
                             width: '6px',
                             height: '12px',
                             borderRadius: '9999px',
-                            backgroundColor: 'rgba(255,255,255,0.5)'
+                            backgroundColor: 'rgba(26,26,26,0.4)'
                         }}
                     />
                 </div>

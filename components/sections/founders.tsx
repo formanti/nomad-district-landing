@@ -18,15 +18,15 @@ function FounderCard({ name, image, bio, delay = 0 }: FounderCardProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay }}
             style={{
-                background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+                background: '#FFFFFF',
                 borderRadius: '24px',
                 padding: '40px',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                border: '1px solid #E0E0E0',
                 transition: 'all 0.4s ease',
             }}
             whileHover={{
-                borderColor: 'rgba(252, 115, 66, 0.3)',
-                boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
+                borderColor: 'rgba(34, 197, 94, 0.5)',
+                boxShadow: '0 20px 60px rgba(0, 0, 0, 0.1)',
             }}
         >
             {/* Photo */}
@@ -37,8 +37,8 @@ function FounderCard({ name, image, bio, delay = 0 }: FounderCardProps) {
                     borderRadius: '20px',
                     overflow: 'hidden',
                     margin: '0 auto 24px',
-                    border: '3px solid rgba(252, 115, 66, 0.3)',
-                    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3)',
+                    border: '3px solid rgba(34, 197, 94, 0.4)',
+                    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)',
                 }}
             >
                 <Image
@@ -59,7 +59,7 @@ function FounderCard({ name, image, bio, delay = 0 }: FounderCardProps) {
                 style={{
                     fontSize: '24px',
                     fontWeight: 700,
-                    color: '#FFFFFF',
+                    color: '#1A1A1A',
                     textAlign: 'center',
                     marginBottom: '8px',
                 }}
@@ -72,7 +72,7 @@ function FounderCard({ name, image, bio, delay = 0 }: FounderCardProps) {
                 style={{
                     fontSize: '14px',
                     fontWeight: 600,
-                    color: '#FC7342',
+                    color: '#22C55E',
                     textAlign: 'center',
                     marginBottom: '24px',
                     letterSpacing: '0.05em',
@@ -82,7 +82,7 @@ function FounderCard({ name, image, bio, delay = 0 }: FounderCardProps) {
             </p>
 
             {/* Bio */}
-            <div style={{ color: 'rgba(255, 255, 255, 0.7)', lineHeight: 1.7 }}>
+            <div style={{ color: '#666666', lineHeight: 1.7 }}>
                 {bio.map((paragraph, index) => (
                     <p
                         key={index}
@@ -118,7 +118,7 @@ export function FoundersSection() {
         <section
             style={{
                 padding: '80px 0',
-                background: '#14181E',
+                background: '#F5F5F0',
             }}
         >
             <div className="container">
