@@ -44,7 +44,7 @@ export function HeroSection({
                 alignItems: 'center',
                 justifyContent: 'center',
                 overflow: 'hidden',
-                padding: '80px 0 60px 0',
+                padding: 'clamp(40px, 10vh, 80px) 0 clamp(40px, 8vh, 60px) 0',
                 backgroundColor: '#F5F5F0'
             }}
         >
@@ -144,7 +144,7 @@ export function HeroSection({
                     <h1
                         className="hero-headline"
                         style={{
-                            fontSize: 'clamp(32px, 8vw, 64px)',
+                            fontSize: 'clamp(28px, 8vw, 64px)',
                             fontWeight: 700,
                             lineHeight: 1.15,
                             marginBottom: '20px',
