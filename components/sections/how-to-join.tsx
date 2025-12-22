@@ -239,21 +239,25 @@ export function HowToJoinSection() {
                     }}
                 >
                     {/* Member avatars */}
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '4px', marginBottom: '12px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
                         {['V', 'J', 'P', 'D'].map((letter, i) => (
                             <div
                                 key={i}
                                 style={{
-                                    width: '28px',
-                                    height: '28px',
+                                    width: '32px',
+                                    height: '32px',
                                     borderRadius: '50%',
                                     backgroundColor: '#22C55E',
                                     color: '#FFFFFF',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    fontSize: '12px',
+                                    fontSize: '13px',
                                     fontWeight: 600,
+                                    marginLeft: i === 0 ? '0' : '-8px',
+                                    border: '2px solid #F5F5F0',
+                                    position: 'relative',
+                                    zIndex: 4 - i,
                                 }}
                             >
                                 {letter}
@@ -261,16 +265,18 @@ export function HowToJoinSection() {
                         ))}
                         <div
                             style={{
-                                width: '28px',
-                                height: '28px',
+                                width: '32px',
+                                height: '32px',
                                 borderRadius: '50%',
                                 backgroundColor: '#1A1A1A',
                                 color: '#FFFFFF',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                fontSize: '10px',
+                                fontSize: '9px',
                                 fontWeight: 600,
+                                marginLeft: '-8px',
+                                border: '2px solid #F5F5F0',
                             }}
                         >
                             +100
