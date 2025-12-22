@@ -27,6 +27,7 @@ export default async function Home() {
         headlineHighlight={content.hero.headlineHighlight}
         subheadline={content.hero.subheadline}
       />
+      <Testimonials />
       <VideoSection
         eyebrow={content.video.eyebrow}
         headline={content.video.headline}
@@ -38,7 +39,6 @@ export default async function Home() {
         headline={content.benefits.headline}
         benefits={content.benefits.items}
       />
-      <Testimonials />
       <OfferSection
         eyebrow={content.offer.eyebrow}
         headline={content.offer.headline}

@@ -213,32 +213,6 @@ export function HeroSection({
                         >
                             Únete al Programa →
                         </Link>
-                        <button
-                            id="btn-methodology"
-                            onClick={() => {
-                                document.getElementById('video-section')?.scrollIntoView({ behavior: 'smooth' });
-                            }}
-                            style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                width: '100%',
-                                maxWidth: '320px',
-                                padding: '16px 32px',
-                                borderRadius: '8px',
-                                fontSize: '14px',
-                                fontWeight: 600,
-                                backgroundColor: 'rgba(255,255,255,0.8)',
-                                color: '#1A1A1A',
-                                border: '2px solid #1A1A1A',
-                                cursor: 'pointer',
-                                transition: 'all 0.3s ease',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.02em'
-                            }}
-                        >
-                            ¿Qué ofrecemos?
-                        </button>
                     </div>
                 </motion.div>
             </div>

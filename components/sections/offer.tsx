@@ -96,12 +96,15 @@ export function OfferSection({
                         style={{
                             fontSize: 'clamp(28px, 6vw, 40px)',
                             fontWeight: 700,
-                            marginBottom: '12px',
+                            marginBottom: '8px',
                             color: '#1A1A1A'
                         }}
                     >
                         Selecciona tu plan
                     </h2>
+                    <p style={{ fontSize: '14px', color: '#666666', marginBottom: '12px' }}>
+                        (Precios en USD)
+                    </p>
                     <p style={{ fontSize: '14px', color: '#666666', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', flexWrap: 'wrap' }}>
                         🎓 Nuestra comunidad vive en{" "}
                         <Image src="/images/skool-logo.png" alt="Skool" width={60} height={20} style={{ display: 'inline-block', verticalAlign: 'middle' }} />
@@ -174,7 +177,7 @@ export function OfferSection({
                                 marginTop: 'auto'
                             }}
                         >
-                            Join Standard
+                            Elegir Standard
                         </Link>
                     </motion.div>
 
@@ -188,12 +191,33 @@ export function OfferSection({
                             backgroundColor: '#FFFFFF',
                             borderRadius: '12px',
                             padding: '32px 24px',
-                            border: '1px solid #E0E0E0',
-                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+                            border: '2px solid #22C55E',
+                            boxShadow: '0 4px 16px rgba(34, 197, 94, 0.15)',
                             display: 'flex',
-                            flexDirection: 'column'
+                            flexDirection: 'column',
+                            position: 'relative'
                         }}
                     >
+                        {/* Most Popular Badge */}
+                        <div
+                            style={{
+                                position: 'absolute',
+                                top: '-12px',
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                backgroundColor: '#22C55E',
+                                color: '#FFFFFF',
+                                fontSize: '12px',
+                                fontWeight: 700,
+                                padding: '6px 16px',
+                                borderRadius: '20px',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.05em',
+                                whiteSpace: 'nowrap'
+                            }}
+                        >
+                            ⭐ Más popular
+                        </div>
                         <div style={{ textAlign: 'center', marginBottom: '24px' }}>
                             <p style={{ fontSize: '36px', fontWeight: 700, color: '#1A1A1A' }}>
                                 $199<span style={{ fontSize: '16px', fontWeight: 400, color: '#666666' }}>/year</span>
@@ -234,7 +258,7 @@ export function OfferSection({
                                 marginTop: 'auto'
                             }}
                         >
-                            Join Premium
+                            Elegir Premium
                         </Link>
                     </motion.div>
 
@@ -294,7 +318,7 @@ export function OfferSection({
                                 marginTop: 'auto'
                             }}
                         >
-                            Join VIP
+                            Elegir VIP
                         </Link>
                     </motion.div>
                 </div>
