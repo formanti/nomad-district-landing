@@ -158,9 +158,9 @@ export function HowToJoinSection() {
                                             <Image
                                                 src="/images/skool-logo.png"
                                                 alt="Skool"
-                                                width={40}
+                                                width={100}
                                                 height={40}
-                                                style={{ objectFit: 'contain' }}
+                                                style={{ objectFit: 'contain', objectPosition: 'left' }}
                                             />
                                             <div>
                                                 <p style={{ fontWeight: 700, color: '#1A1A1A', fontSize: '16px', margin: 0 }}>
