@@ -28,16 +28,16 @@ export default async function Home() {
         subheadline={content.hero.subheadline}
       />
       <Testimonials />
+      <BenefitsSection
+        eyebrow={content.benefits.eyebrow}
+        headline={content.benefits.headline}
+        benefits={content.benefits.items}
+      />
       <VideoSection
         eyebrow={content.video.eyebrow}
         headline={content.video.headline}
         videoUrl={content.video.videoUrl}
         caption={content.video.caption}
-      />
-      <BenefitsSection
-        eyebrow={content.benefits.eyebrow}
-        headline={content.benefits.headline}
-        benefits={content.benefits.items}
       />
       <OfferSection
         eyebrow={content.offer.eyebrow}
