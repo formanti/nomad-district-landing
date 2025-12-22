@@ -3,6 +3,7 @@ import path from 'path';
 import { HeroSection } from "@/components/sections/hero";
 import { VideoSection } from "@/components/sections/video-section";
 import { BenefitsSection } from "@/components/sections/benefits";
+import { HowToJoinSection } from "@/components/sections/how-to-join";
 import { OfferSection } from "@/components/sections/offer";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Footer } from "@/components/footer";
@@ -39,6 +40,7 @@ export default async function Home() {
         videoUrl={content.video.videoUrl}
         caption={content.video.caption}
       />
+      <HowToJoinSection />
       <OfferSection
         eyebrow={content.offer.eyebrow}
         headline={content.offer.headline}
