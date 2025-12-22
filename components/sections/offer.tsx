@@ -10,17 +10,17 @@ const SKOOL_URL = "https://www.skool.com/nomad-district/plans";
 
 // Plan features matching Skool exactly
 const standardFeatures = [
-    "Método paso a paso para conseguir un trabajo remoto",
+    "Curso completo de 12 módulos para conseguir",
     "CV, Cover Letter y LinkedIn listos para aplicar",
-    "Trucos y preparación para entrevistas",
-    "Conoce las mejores bolsas de trabajo remoto",
+    "Conoce las mejores bolsas de trabajo remoto y",
+    "Trucos y preparación para entrevistas.",
     "Guía práctica del proceso de aplicación",
 ];
 
 const premiumFeatures = [
     "Todo del Plan Standard +",
-    "Sesión 1-1 para ajustar tu estrategia completa",
-    "Revisión personalizada de tu CV, Cover Letter y LinkedIn",
+    "Sesión 1-1 para ajustar tu estrategia de aplicación",
+    "Revisión personalizada de tu CV, Cover Letter y",
     "Vacantes seleccionadas para para tu perfil",
     "Soporte directo para resolver dudas rápido",
     "Seguimiento semanal de tu proceso de aplicación",
@@ -139,7 +139,7 @@ export function OfferSection({
                     >
                         <div style={{ textAlign: 'center', marginBottom: '24px' }}>
                             <p style={{ fontSize: '36px', fontWeight: 700, color: '#1A1A1A' }}>
-                                $49<span style={{ fontSize: '16px', fontWeight: 400, color: '#666666' }}>/month</span>
+                                $99<span style={{ fontSize: '16px', fontWeight: 400, color: '#666666' }}>/year</span>
                             </p>
                             <p style={{ fontSize: '18px', fontWeight: 600, color: '#1A1A1A', marginTop: '4px' }}>
                                 Standard
