@@ -265,17 +265,17 @@ export function HowToJoinSection() {
                         ))}
                         <div
                             style={{
-                                width: '32px',
-                                height: '32px',
+                                width: '40px',
+                                height: '40px',
                                 borderRadius: '50%',
                                 backgroundColor: '#1A1A1A',
                                 color: '#FFFFFF',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                fontSize: '9px',
+                                fontSize: '11px',
                                 fontWeight: 600,
-                                marginLeft: '-8px',
+                                marginLeft: '-10px',
                                 border: '2px solid #F5F5F0',
                             }}
                         >
