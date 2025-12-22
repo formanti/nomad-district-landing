@@ -139,7 +139,7 @@ export function OfferSection({
                     >
                         <div style={{ textAlign: 'center', marginBottom: '24px' }}>
                             <p style={{ fontSize: '36px', fontWeight: 700, color: '#1A1A1A' }}>
-                                $99<span style={{ fontSize: '16px', fontWeight: 400, color: '#666666' }}>/year</span>
+                                $49<span style={{ fontSize: '16px', fontWeight: 400, color: '#666666' }}>/month</span>
                             </p>
                             <p style={{ fontSize: '18px', fontWeight: 600, color: '#1A1A1A', marginTop: '4px' }}>
                                 Standard
