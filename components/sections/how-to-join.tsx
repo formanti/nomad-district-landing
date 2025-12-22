@@ -239,22 +239,22 @@ export function HowToJoinSection() {
                     }}
                 >
                     {/* Member avatars */}
-                    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '12px' }}>
                         {['V', 'J', 'P', 'D'].map((letter, i) => (
                             <div
                                 key={i}
                                 style={{
-                                    width: '32px',
-                                    height: '32px',
+                                    width: '36px',
+                                    height: '36px',
                                     borderRadius: '50%',
                                     backgroundColor: '#22C55E',
                                     color: '#FFFFFF',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    fontSize: '13px',
+                                    fontSize: '14px',
                                     fontWeight: 600,
-                                    marginLeft: i === 0 ? '0' : '-8px',
+                                    marginLeft: i === 0 ? '0' : '-10px',
                                     border: '2px solid #F5F5F0',
                                     position: 'relative',
                                     zIndex: 4 - i,
@@ -265,8 +265,8 @@ export function HowToJoinSection() {
                         ))}
                         <div
                             style={{
-                                width: '40px',
-                                height: '40px',
+                                width: '36px',
+                                height: '36px',
                                 borderRadius: '50%',
                                 backgroundColor: '#1A1A1A',
                                 color: '#FFFFFF',
@@ -277,6 +277,8 @@ export function HowToJoinSection() {
                                 fontWeight: 600,
                                 marginLeft: '-10px',
                                 border: '2px solid #F5F5F0',
+                                position: 'relative',
+                                zIndex: 0,
                             }}
                         >
                             +100
