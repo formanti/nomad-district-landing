@@ -58,6 +58,117 @@ const TESTIMONIALS = [
 // Duplicate the array to ensure seamless infinite scroll
 const DOUBLED_TESTIMONIALS = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS];
 
+// Individual testimonial card component to manage its own flip state
+function TestimonialCard({ person, onHoverStart, onHoverEnd }: {
+    person: typeof TESTIMONIALS[0];
+    onHoverStart: () => void;
+    onHoverEnd: () => void;
+}) {
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    return (
+        <div
+            className="relative w-[280px] h-[450px] md:w-[320px] md:h-[500px] shrink-0 cursor-pointer"
+            style={{ perspective: '1000px' }}
+            onMouseEnter={() => {
+                setIsFlipped(true);
+                onHoverStart();
+            }}
+            onMouseLeave={() => {
+                setIsFlipped(false);
+                onHoverEnd();
+            }}
+            onClick={() => setIsFlipped(!isFlipped)}
+        >
+            {/* Flip Card Container */}
+            <div
+                className="relative w-full h-full transition-transform duration-700"
+                style={{
+                    transformStyle: 'preserve-3d',
+                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                }}
+            >
+                {/* Front of Card */}
+                <div
+                    className="absolute inset-0 rounded-2xl overflow-hidden"
+                    style={{
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
+                        border: '1px solid #E5E7EB',
+                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+                    }}
+                >
+                    <Image
+                        src={person.image}
+                        alt={person.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 300px, 400px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4 z-10">
+                        <h3 className="text-xl font-bold mb-2 text-white leading-tight">
+                            {person.name}
+                        </h3>
+                        <p className="text-sm text-gray-300 font-medium leading-relaxed">
+                            {person.title}
+                        </p>
+                    </div>
+                    {/* Tap hint on mobile */}
+                    <div className="absolute top-4 right-4 z-10 md:hidden">
+                        <span className="text-xs text-white/70 bg-black/40 px-2 py-1 rounded">
+                            Toca para ver más
+                        </span>
+                    </div>
+                </div>
+
+                {/* Back of Card */}
+                <div
+                    className="absolute inset-0 rounded-2xl overflow-hidden flex flex-col justify-center"
+                    style={{
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
+                        transform: 'rotateY(180deg)',
+                        backgroundColor: '#1A1A1A',
+                        border: '1px solid #333',
+                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                        padding: '24px'
+                    }}
+                >
+                    <div className="text-center mb-4">
+                        <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-2 border-[#22C55E]">
+                            <Image
+                                src={person.image}
+                                alt={person.name}
+                                width={64}
+                                height={64}
+                                className="object-cover w-full h-full"
+                            />
+                        </div>
+                        <h3 className="text-lg font-bold text-white">
+                            {person.name}
+                        </h3>
+                        <p className="text-xs text-[#22C55E] font-medium">
+                            {person.title}
+                        </p>
+                    </div>
+                    <div className="flex-1 flex items-center">
+                        <p
+                            className="text-sm text-gray-300 leading-relaxed italic"
+                            style={{
+                                textAlign: 'justify',
+                                margin: '0 8px'
+                            }}
+                        >
+                            "{person.story}"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export function Testimonials() {
     const [isPaused, setIsPaused] = useState(false);
 
@@ -118,96 +229,12 @@ export function Testimonials() {
                     style={isPaused ? { animationPlayState: 'paused' } : {}}
                 >
                     {DOUBLED_TESTIMONIALS.map((person, index) => (
-                        <div
+                        <TestimonialCard
                             key={`${person.name}-${index}`}
-                            className="relative w-[280px] h-[450px] md:w-[320px] md:h-[500px] shrink-0 cursor-pointer"
-                            style={{ perspective: '1000px' }}
-                            onMouseEnter={() => setIsPaused(true)}
-                            onMouseLeave={() => setIsPaused(false)}
-                        >
-                            {/* Flip Card Container */}
-                            <div
-                                className="relative w-full h-full transition-transform duration-700"
-                                style={{
-                                    transformStyle: 'preserve-3d',
-                                }}
-                                onMouseEnter={(e) => {
-                                    (e.currentTarget as HTMLElement).style.transform = 'rotateY(180deg)';
-                                }}
-                                onMouseLeave={(e) => {
-                                    (e.currentTarget as HTMLElement).style.transform = 'rotateY(0deg)';
-                                }}
-                            >
-                                {/* Front of Card */}
-                                <div
-                                    className="absolute inset-0 rounded-2xl overflow-hidden"
-                                    style={{
-                                        backfaceVisibility: 'hidden',
-                                        border: '1px solid #E5E7EB',
-                                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
-                                    }}
-                                >
-                                    <Image
-                                        src={person.image}
-                                        alt={person.name}
-                                        fill
-                                        className="object-cover"
-                                        sizes="(max-width: 768px) 300px, 400px"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-                                    <div className="absolute bottom-4 left-4 right-4 z-10">
-                                        <h3 className="text-xl font-bold mb-2 text-white leading-tight">
-                                            {person.name}
-                                        </h3>
-                                        <p className="text-sm text-gray-300 font-medium leading-relaxed">
-                                            {person.title}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* Back of Card */}
-                                <div
-                                    className="absolute inset-0 rounded-2xl overflow-hidden flex flex-col justify-center"
-                                    style={{
-                                        backfaceVisibility: 'hidden',
-                                        transform: 'rotateY(180deg)',
-                                        backgroundColor: '#1A1A1A',
-                                        border: '1px solid #333',
-                                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-                                        padding: '24px'
-                                    }}
-                                >
-                                    <div className="text-center mb-4">
-                                        <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-2 border-[#22C55E]">
-                                            <Image
-                                                src={person.image}
-                                                alt={person.name}
-                                                width={64}
-                                                height={64}
-                                                className="object-cover w-full h-full"
-                                            />
-                                        </div>
-                                        <h3 className="text-lg font-bold text-white">
-                                            {person.name}
-                                        </h3>
-                                        <p className="text-xs text-[#22C55E] font-medium">
-                                            {person.title}
-                                        </p>
-                                    </div>
-                                    <div className="flex-1 flex items-center">
-                                        <p
-                                            className="text-sm text-gray-300 leading-relaxed italic"
-                                            style={{
-                                                textAlign: 'justify',
-                                                margin: '0 8px'
-                                            }}
-                                        >
-                                            "{person.story}"
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            person={person}
+                            onHoverStart={() => setIsPaused(true)}
+                            onHoverEnd={() => setIsPaused(false)}
+                        />
                     ))}
                 </motion.div>
             </div>
