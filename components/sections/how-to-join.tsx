@@ -156,11 +156,11 @@ export function HowToJoinSection() {
                                     >
                                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
                                             <Image
-                                                src="/images/skool-logo.png"
+                                                src="/images/SK.png"
                                                 alt="Skool"
-                                                width={100}
+                                                width={40}
                                                 height={40}
-                                                style={{ objectFit: 'contain', objectPosition: 'left' }}
+                                                style={{ objectFit: 'contain' }}
                                             />
                                             <div>
                                                 <p style={{ fontWeight: 700, color: '#1A1A1A', fontSize: '16px', margin: 0 }}>
