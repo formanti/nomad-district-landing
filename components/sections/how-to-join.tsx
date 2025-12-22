@@ -257,7 +257,7 @@ export function HowToJoinSection() {
                                     marginLeft: i === 0 ? '0' : '-10px',
                                     border: '2px solid #F5F5F0',
                                     position: 'relative',
-                                    zIndex: 4 - i,
+                                    zIndex: i + 1,
                                 }}
                             >
                                 {letter}
@@ -278,7 +278,7 @@ export function HowToJoinSection() {
                                 marginLeft: '-10px',
                                 border: '2px solid #F5F5F0',
                                 position: 'relative',
-                                zIndex: 0,
+                                zIndex: 10,
                             }}
                         >
                             +100
