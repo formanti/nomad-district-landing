@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 // Skool URL
 const SKOOL_URL = "https://www.skool.com/nomad-district/plans";
@@ -48,15 +49,23 @@ export function HeroSection({
                 backgroundColor: '#F5F5F0'
             }}
         >
-            {/* Subtle gradient background */}
-            <div
-                style={{
-                    position: 'absolute',
-                    inset: 0,
-                    zIndex: 0,
-                    background: 'radial-gradient(ellipse at 60% 40%, rgba(34, 197, 94, 0.08) 0%, transparent 50%), radial-gradient(ellipse at 40% 60%, rgba(246, 224, 94, 0.08) 0%, transparent 50%)'
-                }}
-            />
+            {/* Background Image with Overlay */}
+            <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+                <Image
+                    src="/images/parapente.jpeg"
+                    alt="Freedom background"
+                    fill
+                    style={{ objectFit: 'cover', objectPosition: 'center 10%' }}
+                    priority
+                />
+                <div
+                    style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'linear-gradient(to bottom, rgba(245, 245, 240, 0.9) 0%, rgba(245, 245, 240, 0.7) 50%, rgba(245, 245, 240, 0.9) 100%)'
+                    }}
+                />
+            </div>
 
             {/* Floating animated circles as subtle decoration */}
             <motion.div

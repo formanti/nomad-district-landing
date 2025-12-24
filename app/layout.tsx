@@ -24,6 +24,26 @@ export const metadata: Metadata = {
     shortcut: "/icon.png",
     apple: "/icon.png",
   },
+  openGraph: {
+    title: "Remote Jobs & AI Academy",
+    description: "Encuentra el trabajo remoto de tus sueños. Sistema claro y accionable para conseguir tu primer trabajo remoto en dólares.",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Remote Jobs & AI Academy - Trabaja desde cualquier lugar",
+      },
+    ],
+    locale: "es_MX",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Remote Jobs & AI Academy",
+    description: "Encuentra el trabajo remoto de tus sueños. Sistema claro y accionable para conseguir tu primer trabajo remoto en dólares.",
+    images: ["/images/og-image.png"],
+  },
 };
 
 export default function RootLayout({
