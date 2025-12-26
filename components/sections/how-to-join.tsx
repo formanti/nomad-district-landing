@@ -38,31 +38,12 @@ export function HowToJoinSection() {
     return (
         <section
             style={{
-                position: 'relative',
                 padding: '80px 0',
-                overflow: 'hidden'
+                backgroundColor: '#FFFFFF',
             }}
         >
-            {/* Background Image */}
-            <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-                <Image
-                    src="/images/montana-2.jpeg"
-                    alt="Mountain adventure background"
-                    fill
-                    style={{ objectFit: 'cover', objectPosition: 'center 40%' }}
-                />
-                <div
-                    style={{
-                        position: 'absolute',
-                        inset: 0,
-                        background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.93) 50%, rgba(255, 255, 255, 0.95) 100%)'
-                    }}
-                />
-            </div>
             <div
                 style={{
-                    position: 'relative',
-                    zIndex: 1,
                     maxWidth: '700px',
                     margin: '0 auto',
                     padding: '0 20px',

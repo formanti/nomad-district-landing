@@ -48,31 +48,12 @@ export function BenefitsSection({
     return (
         <section
             style={{
-                position: 'relative',
                 padding: '80px 0',
-                overflow: 'hidden'
+                backgroundColor: '#F8F7F4'
             }}
         >
-            {/* Background Image */}
-            <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-                <Image
-                    src="/images/montana-3.jpeg"
-                    alt="Mountain adventure background"
-                    fill
-                    style={{ objectFit: 'cover', objectPosition: 'center 60%' }}
-                />
-                <div
-                    style={{
-                        position: 'absolute',
-                        inset: 0,
-                        background: 'linear-gradient(to bottom, rgba(248, 247, 244, 0.95) 0%, rgba(248, 247, 244, 0.93) 50%, rgba(248, 247, 244, 0.95) 100%)'
-                    }}
-                />
-            </div>
             <div
                 style={{
-                    position: 'relative',
-                    zIndex: 1,
                     width: '100%',
                     maxWidth: '1200px',
                     margin: '0 auto',
