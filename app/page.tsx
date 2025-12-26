@@ -28,17 +28,16 @@ export default async function Home() {
         headlineHighlight={content.hero.headlineHighlight}
         subheadline={content.hero.subheadline}
       />
-      <Testimonials />
-      <BenefitsSection
-        eyebrow={content.benefits.eyebrow}
-        headline={content.benefits.headline}
-        benefits={content.benefits.items}
-      />
       <VideoSection
         eyebrow={content.video.eyebrow}
         headline={content.video.headline}
         videoUrl={content.video.videoUrl}
         caption={content.video.caption}
+      />
+      <BenefitsSection
+        eyebrow={content.benefits.eyebrow}
+        headline={content.benefits.headline}
+        benefits={content.benefits.items}
       />
       <HowToJoinSection />
       <OfferSection
@@ -47,6 +46,7 @@ export default async function Home() {
         headlineHighlight={content.offer.headlineHighlight}
         subheadline={content.offer.subheadline}
       />
+      <Testimonials />
       <Footer />
     </main>
   );

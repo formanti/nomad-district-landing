@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+// Skool URL
+const SKOOL_URL = "https://www.skool.com/nomad-district/plans";
+
 export function Navbar() {
     const pathname = usePathname();
 
@@ -11,6 +14,20 @@ export function Navbar() {
         { href: "/", label: "HOME" },
         { href: "/about", label: "ABOUT US" },
     ];
+
+    const handleCtaClick = () => {
+        if (typeof window !== 'undefined') {
+            if ((window as any).fbq) {
+                (window as any).fbq('track', 'InitiateCheckout');
+            }
+            if ((window as any).gtag) {
+                (window as any).gtag('event', 'initiate_checkout', {
+                    event_category: 'engagement',
+                    event_label: 'navbar_cta'
+                });
+            }
+        }
+    };
 
     return (
         <motion.nav
@@ -24,15 +41,19 @@ export function Navbar() {
                 right: 0,
                 zIndex: 100,
                 display: 'flex',
-                justifyContent: 'center',
+                justifyContent: 'space-between',
                 alignItems: 'center',
-                padding: '16px 24px',
-                background: 'rgba(255, 255, 255, 0.9)',
+                padding: '12px 24px',
+                background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
                 borderBottom: '1px solid #E5E7EB',
             }}
         >
+            {/* Left spacer for centering */}
+            <div style={{ flex: 1 }} />
+
+            {/* Center navigation links */}
             <div
                 style={{
                     display: 'flex',
@@ -88,6 +109,55 @@ export function Navbar() {
                         </Link>
                     );
                 })}
+            </div>
+
+            {/* Right side buttons */}
+            <div
+                style={{
+                    flex: 1,
+                    display: 'flex',
+                    gap: '12px',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                }}
+            >
+                {/* Log in button */}
+                <Link
+                    href={SKOOL_URL}
+                    style={{
+                        padding: '8px 16px',
+                        borderRadius: '6px',
+                        fontSize: '13px',
+                        fontWeight: 600,
+                        color: '#14181E',
+                        textDecoration: 'none',
+                        border: '1px solid #D1D5DB',
+                        background: 'transparent',
+                        transition: 'all 0.2s ease',
+                    }}
+                >
+                    Log in
+                </Link>
+
+                {/* CTA button */}
+                <Link
+                    href={SKOOL_URL}
+                    id="btn-join-navbar"
+                    onClick={handleCtaClick}
+                    style={{
+                        padding: '8px 16px',
+                        borderRadius: '6px',
+                        fontSize: '13px',
+                        fontWeight: 700,
+                        backgroundColor: '#F6E05E',
+                        color: '#1A1A1A',
+                        border: '2px solid #1A1A1A',
+                        textDecoration: 'none',
+                        transition: 'all 0.2s ease',
+                    }}
+                >
+                    Únete al Programa
+                </Link>
             </div>
         </motion.nav>
     );

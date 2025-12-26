@@ -185,44 +185,7 @@ export function HeroSection({
                         ))}
                     </p>
 
-                    {/* CTA Buttons */}
-                    <div
-                        className="hero-buttons"
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '12px',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            padding: '0 10px'
-                        }}
-                    >
-                        <Link
-                            href={SKOOL_URL}
-                            id="btn-join-hero"
-                            onClick={handleCtaClick}
-                            style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                width: '100%',
-                                maxWidth: '320px',
-                                padding: '16px 32px',
-                                borderRadius: '8px',
-                                fontSize: '14px',
-                                fontWeight: 700,
-                                backgroundColor: '#F6E05E',
-                                color: '#1A1A1A',
-                                border: '2px solid #1A1A1A',
-                                transition: 'all 0.3s ease',
-                                textDecoration: 'none',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.02em'
-                            }}
-                        >
-                            Únete al Programa →
-                        </Link>
-                    </div>
+
                 </motion.div>
             </div>
 
