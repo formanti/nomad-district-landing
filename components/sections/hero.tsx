@@ -177,14 +177,16 @@ export function HeroSection({
                     <h1
                         className="hero-headline"
                         style={{
-                            fontSize: 'clamp(28px, 8vw, 64px)',
+                            fontSize: 'clamp(32px, 8vw, 64px)',
                             fontWeight: 700,
-                            lineHeight: 1.15,
-                            marginBottom: '20px',
-                            color: '#1A1A1A'
+                            lineHeight: 1.2,
+                            marginBottom: '24px',
+                            color: '#1A1A1A',
+                            padding: '0 16px'
                         }}
                     >
-                        {headline}{" "}
+                        {headline}
+                        <br />
                         <span style={{ color: '#22C55E' }}>{headlineHighlight}</span>
                     </h1>
 
