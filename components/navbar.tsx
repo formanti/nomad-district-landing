@@ -163,23 +163,6 @@ export function Navbar() {
                     Únete
                 </Link>
             </div>
-
-            <style jsx>{`
-                @media (min-width: 640px) {
-                    .navbar-login-btn {
-                        display: inline-flex !important;
-                    }
-                    .navbar-cta-btn {
-                        padding: 8px 16px !important;
-                        font-size: 13px !important;
-                    }
-                }
-                @media (max-width: 639px) {
-                    .navbar-login-btn {
-                        display: none !important;
-                    }
-                }
-            `}</style>
         </motion.nav>
     );
 }

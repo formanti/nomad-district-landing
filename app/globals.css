@@ -130,3 +130,24 @@ a {
 .bg-darker {
   background-color: #0d1015;
 }
+
+/* Navbar responsive styles */
+.navbar-login-btn {
+  display: none !important;
+}
+
+.navbar-cta-btn {
+  font-size: 11px !important;
+  padding: 6px 10px !important;
+}
+
+@media (min-width: 640px) {
+  .navbar-login-btn {
+    display: inline-flex !important;
+  }
+
+  .navbar-cta-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+  }
+}
