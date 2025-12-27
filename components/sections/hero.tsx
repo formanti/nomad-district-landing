@@ -16,8 +16,8 @@ interface HeroSectionProps {
 
 export function HeroSection({
     badge = "Remote Job Academy",
-    headline = "Consigue un trabajo remoto",
-    headlineHighlight = "con sueldo en dólares.",
+    headline = "Consigue un trabajo",
+    headlineHighlight = "remoto y gana en dólares.",
     subheadline = "Método probado y garantizado.\nEl sistema que funcionó para 350+ personas como tú.",
 }: HeroSectionProps) {
 
