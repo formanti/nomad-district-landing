@@ -113,10 +113,11 @@ export function Navbar() {
 
             {/* Right side buttons */}
             <div
+                className="navbar-buttons"
                 style={{
                     flex: 1,
                     display: 'flex',
-                    gap: '12px',
+                    gap: '8px',
                     alignItems: 'center',
                     justifyContent: 'flex-end',
                 }}
@@ -124,6 +125,7 @@ export function Navbar() {
                 {/* Log in button */}
                 <Link
                     href={SKOOL_URL}
+                    className="navbar-login-btn"
                     style={{
                         padding: '8px 16px',
                         borderRadius: '6px',
@@ -143,22 +145,41 @@ export function Navbar() {
                 <Link
                     href={SKOOL_URL}
                     id="btn-join-navbar"
+                    className="navbar-cta-btn"
                     onClick={handleCtaClick}
                     style={{
-                        padding: '8px 16px',
+                        padding: '8px 12px',
                         borderRadius: '6px',
-                        fontSize: '13px',
+                        fontSize: '12px',
                         fontWeight: 700,
                         backgroundColor: '#F6E05E',
                         color: '#1A1A1A',
                         border: '2px solid #1A1A1A',
                         textDecoration: 'none',
                         transition: 'all 0.2s ease',
+                        whiteSpace: 'nowrap',
                     }}
                 >
-                    Únete al Programa
+                    Únete
                 </Link>
             </div>
+
+            <style jsx>{`
+                @media (min-width: 640px) {
+                    .navbar-login-btn {
+                        display: inline-flex !important;
+                    }
+                    .navbar-cta-btn {
+                        padding: 8px 16px !important;
+                        font-size: 13px !important;
+                    }
+                }
+                @media (max-width: 639px) {
+                    .navbar-login-btn {
+                        display: none !important;
+                    }
+                }
+            `}</style>
         </motion.nav>
     );
 }

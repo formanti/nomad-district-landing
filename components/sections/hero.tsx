@@ -52,10 +52,10 @@ export function HeroSection({
             {/* Background Image with Overlay */}
             <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
                 <Image
-                    src="/images/parapente.jpeg"
+                    src="/images/pexels-ron-lach.jpg"
                     alt="Freedom background"
                     fill
-                    style={{ objectFit: 'cover', objectPosition: 'center 10%' }}
+                    style={{ objectFit: 'cover', objectPosition: 'center top' }}
                     priority
                 />
                 <div

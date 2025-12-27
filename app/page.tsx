@@ -39,6 +39,7 @@ export default async function Home() {
         headline={content.benefits.headline}
         benefits={content.benefits.items}
       />
+      <Testimonials />
       <HowToJoinSection />
       <OfferSection
         eyebrow={content.offer.eyebrow}
@@ -46,7 +47,6 @@ export default async function Home() {
         headlineHighlight={content.offer.headlineHighlight}
         subheadline={content.offer.subheadline}
       />
-      <Testimonials />
       <Footer />
     </main>
   );
