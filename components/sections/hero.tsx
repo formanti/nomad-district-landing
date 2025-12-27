@@ -185,8 +185,9 @@ export function HeroSection({
                             padding: '0 16px'
                         }}
                     >
-                        {headline}{" "}
-                        <span style={{ color: '#22C55E' }}>{headlineHighlight}</span>
+                        Consigue un trabajo
+                        <br />
+                        remoto <span style={{ color: '#22C55E' }}>y gana en dólares.</span>
                     </h1>
 
                     {/* Subheadline */}
