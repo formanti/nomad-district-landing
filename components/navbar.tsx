@@ -31,60 +31,16 @@ export function Navbar() {
     };
 
     return (
-        <motion.nav
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                right: 0,
-                zIndex: 100,
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                padding: '12px 24px',
-                background: 'rgba(255, 255, 255, 0.95)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                borderBottom: '1px solid #E5E7EB',
-            }}
-        >
-            {/* Logo Section */}
-            <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
-                <Link href="/" style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-                    {/* Mobile Isotype */}
-                    <div className="logo-mobile">
-                        <Image
-                            src="/images/isotipo.png"
-                            alt="Nomad District Isotype"
-                            width={32}
-                            height={32}
-                            style={{ objectFit: 'contain' }}
-                            priority
-                        />
-                    </div>
-                    {/* Desktop Logo */}
-                    <div className="logo-desktop">
-                        <Image
-                            src="/images/logo.png"
-                            alt="Nomad District Logo"
-                            width={140}
-                            height={32}
-                            style={{ objectFit: 'contain' }}
-                            priority
-                        />
-                    </div>
-                </Link>
-            </div>
-
-            <style jsx>{`
+        <>
+            <style jsx global>{`
                 .logo-mobile {
                     display: block;
                 }
                 .logo-desktop {
                     display: none;
+                }
+                .nav-links-container {
+                    gap: 16px;
                 }
                 @media (min-width: 640px) {
                     .logo-mobile {
@@ -93,29 +49,69 @@ export function Navbar() {
                     .logo-desktop {
                         display: block;
                     }
+                    .nav-links-container {
+                        gap: 48px;
+                    }
                 }
             `}</style>
-
-            {/* Center navigation links */}
-            <div
+            <motion.nav
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
                 style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    zIndex: 100,
                     display: 'flex',
+                    justifyContent: 'space-between',
                     alignItems: 'center',
+                    padding: '8px 24px',
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    borderBottom: '1px solid #E5E7EB',
                 }}
             >
-                <style jsx>{`
-                    .nav-links-container {
-                        gap: 16px;
-                    }
-                    @media (min-width: 640px) {
-                        .nav-links-container {
-                            gap: 48px;
-                        }
-                    }
-                `}</style>
-                {/* Links wrapper with class */}
-                <div className="nav-links-container" style={{ display: 'flex', alignItems: 'center' }}>
+                {/* Logo Section */}
+                <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
+                    <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
+                        {/* Mobile Isotype */}
+                        <div className="logo-mobile">
+                            <Image
+                                src="/images/isotipo.png"
+                                alt="Nomad District"
+                                width={50}
+                                height={50}
+                                style={{ objectFit: 'contain' }}
+                                priority
+                                unoptimized
+                            />
+                        </div>
+                        {/* Desktop Logo */}
+                        <div className="logo-desktop">
+                            <Image
+                                src="/images/logo-new.png"
+                                alt="Nomad District"
+                                width={180}
+                                height={41}
+                                style={{ objectFit: 'contain' }}
+                                priority
+                                unoptimized
+                            />
+                        </div>
+                    </Link>
+                </div>
 
+                {/* Center navigation links */}
+                <div
+                    style={{
+                        display: 'flex',
+                        gap: '48px',
+                        alignItems: 'center',
+                    }}
+                >
                     {links.map((link) => {
                         const isActive = pathname === link.href;
                         return (
@@ -165,35 +161,35 @@ export function Navbar() {
                         );
                     })}
                 </div>
-            </div>
 
-            {/* Right side button */}
-            <div
-                style={{
-                    flex: 1,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'flex-end',
-                }}
-            >
-                {/* Log in button */}
-                <Link
-                    href={SKOOL_URL}
+                {/* Right side button */}
+                <div
                     style={{
-                        padding: '8px 16px',
-                        borderRadius: '6px',
-                        fontSize: '13px',
-                        fontWeight: 600,
-                        color: '#14181E',
-                        textDecoration: 'none',
-                        border: '1px solid #D1D5DB',
-                        background: 'transparent',
-                        transition: 'all 0.2s ease',
+                        flex: 1,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'flex-end',
                     }}
                 >
-                    Log in
-                </Link>
-            </div>
-        </motion.nav>
+                    {/* Log in button */}
+                    <Link
+                        href={SKOOL_URL}
+                        style={{
+                            padding: '8px 16px',
+                            borderRadius: '6px',
+                            fontSize: '13px',
+                            fontWeight: 600,
+                            color: '#14181E',
+                            textDecoration: 'none',
+                            border: '1px solid #D1D5DB',
+                            background: 'transparent',
+                            transition: 'all 0.2s ease',
+                        }}
+                    >
+                        Log in
+                    </Link>
+                </div>
+            </motion.nav>
+        </>
     );
 }
