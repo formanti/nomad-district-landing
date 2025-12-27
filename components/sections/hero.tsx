@@ -185,8 +185,7 @@ export function HeroSection({
                             padding: '0 16px'
                         }}
                     >
-                        {headline}
-                        <br />
+                        {headline}{" "}
                         <span style={{ color: '#22C55E' }}>{headlineHighlight}</span>
                     </h1>
 
