@@ -53,14 +53,20 @@ export function Navbar() {
             {/* Left spacer for centering */}
             <div style={{ flex: 1 }} />
 
-            {/* Center navigation links */}
-            <div
-                style={{
-                    display: 'flex',
-                    gap: '48px',
-                    alignItems: 'center',
-                }}
-            >
+
+            <style jsx>{`
+                    .nav-links-container {
+                        gap: 16px;
+                    }
+                    @media (min-width: 640px) {
+                        .nav-links-container {
+                            gap: 48px;
+                        }
+                    }
+                `}</style>
+            {/* Links wrapper with class */}
+            <div className="nav-links-container" style={{ display: 'flex', alignItems: 'center' }}>
+
                 {links.map((link) => {
                     const isActive = pathname === link.href;
                     return (
