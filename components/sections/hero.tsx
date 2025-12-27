@@ -209,6 +209,31 @@ export function HeroSection({
                         ))}
                     </p>
 
+                    {/* CTA Button - Glass Style */}
+                    <Link
+                        href={SKOOL_URL}
+                        id="btn-join-hero"
+                        onClick={handleCtaClick}
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            padding: '12px 28px',
+                            borderRadius: '12px',
+                            fontSize: '14px',
+                            fontWeight: 600,
+                            backgroundColor: 'rgba(255, 255, 255, 0.25)',
+                            backdropFilter: 'blur(12px)',
+                            WebkitBackdropFilter: 'blur(12px)',
+                            color: '#1A1A1A',
+                            border: '1px solid rgba(255, 255, 255, 0.4)',
+                            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+                            transition: 'all 0.3s ease',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        Únete al programa
+                    </Link>
 
                 </motion.div>
             </div>

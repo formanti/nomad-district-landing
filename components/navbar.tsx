@@ -111,13 +111,11 @@ export function Navbar() {
                 })}
             </div>
 
-            {/* Right side buttons */}
+            {/* Right side button */}
             <div
-                className="navbar-buttons"
                 style={{
                     flex: 1,
                     display: 'flex',
-                    gap: '8px',
                     alignItems: 'center',
                     justifyContent: 'flex-end',
                 }}
@@ -125,7 +123,6 @@ export function Navbar() {
                 {/* Log in button */}
                 <Link
                     href={SKOOL_URL}
-                    className="navbar-login-btn"
                     style={{
                         padding: '8px 16px',
                         borderRadius: '6px',
@@ -139,28 +136,6 @@ export function Navbar() {
                     }}
                 >
                     Log in
-                </Link>
-
-                {/* CTA button */}
-                <Link
-                    href={SKOOL_URL}
-                    id="btn-join-navbar"
-                    className="navbar-cta-btn"
-                    onClick={handleCtaClick}
-                    style={{
-                        padding: '8px 12px',
-                        borderRadius: '6px',
-                        fontSize: '12px',
-                        fontWeight: 700,
-                        backgroundColor: '#F6E05E',
-                        color: '#1A1A1A',
-                        border: '2px solid #1A1A1A',
-                        textDecoration: 'none',
-                        transition: 'all 0.2s ease',
-                        whiteSpace: 'nowrap',
-                    }}
-                >
-                    Únete
                 </Link>
             </div>
         </motion.nav>
