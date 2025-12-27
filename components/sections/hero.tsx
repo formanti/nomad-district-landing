@@ -49,20 +49,44 @@ export function HeroSection({
                 backgroundColor: '#F5F5F0'
             }}
         >
-            {/* Background Image with Overlay */}
-            <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+            {/* Background Video with Overlay */}
+            <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
+                {/* Fallback Image for mobile/slow connections */}
                 <Image
                     src="/images/pexels-ron-lach.jpg"
                     alt="Freedom background"
                     fill
-                    style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                    style={{ objectFit: 'cover', objectPosition: 'center top', zIndex: 0 }}
                     priority
                 />
+                {/* MP4 Video Background */}
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        minWidth: '100%',
+                        minHeight: '100%',
+                        width: 'auto',
+                        height: 'auto',
+                        objectFit: 'cover',
+                        zIndex: 1,
+                    }}
+                >
+                    <source src="/videos/hero-background.mp4" type="video/mp4" />
+                </video>
+                {/* Overlay */}
                 <div
                     style={{
                         position: 'absolute',
                         inset: 0,
-                        background: 'linear-gradient(to bottom, rgba(245, 245, 240, 0.9) 0%, rgba(245, 245, 240, 0.7) 50%, rgba(245, 245, 240, 0.9) 100%)'
+                        background: 'linear-gradient(to bottom, rgba(245, 245, 240, 0.85) 0%, rgba(245, 245, 240, 0.7) 50%, rgba(245, 245, 240, 0.85) 100%)',
+                        zIndex: 2,
                     }}
                 />
             </div>
