@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 // Skool URL
-const SKOOL_URL = "https://www.skool.com/nomad-district/plans";
+const SKOOL_URL = "https://www.skool.com/nomad-district";
 
 export function Navbar() {
     const pathname = usePathname();
