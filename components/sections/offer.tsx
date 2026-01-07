@@ -187,7 +187,7 @@ export function OfferSection({
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '32px', flex: 1 }}>
                             {standardFeatures.map((feature, index) => (
                                 <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                                    <CheckCircle2 size={18} style={{ color: '#FC7342', flexShrink: 0, marginTop: '2px' }} />
+                                    <CheckCircle2 size={18} style={{ color: '#B7B6B6', flexShrink: 0, marginTop: '2px' }} />
                                     <span style={{ fontSize: '14px', color: '#B7B6B6', lineHeight: 1.5 }}>{feature}</span>
                                 </div>
                             ))}
@@ -230,8 +230,7 @@ export function OfferSection({
                             backgroundColor: '#1C2128',
                             borderRadius: '20px',
                             padding: '36px 28px',
-                            border: '2px solid #FC7342',
-                            boxShadow: '0 0 60px rgba(252, 115, 66, 0.15)',
+                            border: '1px solid #30363D',
                             display: 'flex',
                             flexDirection: 'column',
                             position: 'relative'
@@ -270,7 +269,7 @@ export function OfferSection({
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '32px', flex: 1 }}>
                             {premiumFeatures.map((feature, index) => (
                                 <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                                    <CheckCircle2 size={18} style={{ color: '#FC7342', flexShrink: 0, marginTop: '2px' }} />
+                                    <CheckCircle2 size={18} style={{ color: '#B7B6B6', flexShrink: 0, marginTop: '2px' }} />
                                     <span style={{ fontSize: '14px', color: '#F0F6FC', lineHeight: 1.5 }}>{feature}</span>
                                 </div>
                             ))}
@@ -314,7 +313,7 @@ export function OfferSection({
                             backgroundColor: '#1C2128',
                             borderRadius: '20px',
                             padding: '36px 28px',
-                            border: '1px solid rgba(252, 115, 66, 0.4)',
+                            border: '1px solid #30363D',
                             display: 'flex',
                             flexDirection: 'column'
                         }}
@@ -331,7 +330,7 @@ export function OfferSection({
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '32px', flex: 1 }}>
                             {vipFeatures.map((feature, index) => (
                                 <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                                    <CheckCircle2 size={18} style={{ color: '#FC7342', flexShrink: 0, marginTop: '2px' }} />
+                                    <CheckCircle2 size={18} style={{ color: '#B7B6B6', flexShrink: 0, marginTop: '2px' }} />
                                     <span style={{ fontSize: '14px', color: '#B7B6B6', lineHeight: 1.5 }}>{feature}</span>
                                 </div>
                             ))}
