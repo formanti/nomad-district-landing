@@ -10,7 +10,7 @@ export function AboutHero() {
                 width: '100%',
                 paddingTop: '140px',
                 paddingBottom: '80px',
-                background: '#F5F5F0',
+                background: '#0D1117',
             }}
         >
             <div className="container" style={{ textAlign: 'center' }}>
@@ -30,9 +30,9 @@ export function AboutHero() {
                             letterSpacing: '0.12em',
                             textTransform: 'uppercase',
                             marginBottom: '24px',
-                            background: 'rgba(34, 197, 94, 0.15)',
-                            border: '1px solid rgba(34, 197, 94, 0.4)',
-                            color: '#22C55E'
+                            background: 'rgba(252, 115, 66, 0.1)',
+                            border: '1px solid rgba(252, 115, 66, 0.3)',
+                            color: '#FC7342'
                         }}
                     >
                         Nomad District
@@ -45,11 +45,10 @@ export function AboutHero() {
                             fontWeight: 700,
                             lineHeight: 1.15,
                             marginBottom: '24px',
-                            color: '#1A1A1A'
+                            color: '#F0F6FC'
                         }}
                     >
-                        Quiénes{" "}
-                        <span style={{ color: '#22C55E' }}>Somos</span>
+                        Quiénes <span style={{ color: '#FC7342' }}>Somos</span>
                     </h1>
 
                     {/* Intro text */}
@@ -58,7 +57,7 @@ export function AboutHero() {
                             fontSize: 'clamp(16px, 3vw, 20px)',
                             maxWidth: '800px',
                             margin: '0 auto',
-                            color: '#666666',
+                            color: '#B7B6B6',
                             lineHeight: 1.7,
                         }}
                     >
@@ -73,7 +72,7 @@ export function AboutHero() {
                             fontSize: 'clamp(15px, 2.5vw, 18px)',
                             maxWidth: '800px',
                             margin: '24px auto 0',
-                            color: '#666666',
+                            color: '#B7B6B6',
                             lineHeight: 1.7,
                         }}
                     >

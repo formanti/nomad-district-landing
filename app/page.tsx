@@ -2,6 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { HeroSection } from "@/components/sections/hero";
 import { VideoSection } from "@/components/sections/video-section";
+import { LifestyleSection } from "@/components/sections/lifestyle";
 import { BenefitsSection } from "@/components/sections/benefits";
 import { HowToJoinSection } from "@/components/sections/how-to-join";
 import { OfferSection } from "@/components/sections/offer";
@@ -21,7 +22,7 @@ export default async function Home() {
   const content = await getContent();
 
   return (
-    <main className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-white">
+    <main className="min-h-screen bg-[#0D1117] text-[#F0F6FC] selection:bg-[#FC7342] selection:text-white">
       <HeroSection
         badge={content.hero.badge}
         headline={content.hero.headline}
@@ -34,6 +35,7 @@ export default async function Home() {
         videoUrl={content.video.videoUrl}
         caption={content.video.caption}
       />
+      <LifestyleSection />
       <BenefitsSection
         eyebrow={content.benefits.eyebrow}
         headline={content.benefits.headline}

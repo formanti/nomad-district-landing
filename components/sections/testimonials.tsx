@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Quote } from 'lucide-react';
 
 const TESTIMONIALS = [
     {
@@ -15,141 +16,139 @@ const TESTIMONIALS = [
         name: 'Marla Castañeda',
         title: 'Account Director @ Zappi',
         image: '/images/Marla Castañeda.png',
-        story: 'Antes trabajaba en la planta de Pepsico: turnos presenciales de 12 horas, sin flexibilidad, atrapada en la rutina. Tres años después de dar el salto al trabajo remoto, hice 4x mi sueldo en Zappi, una empresa de Londres. Viajo mucho y soy muy feliz con mi vida fuera de la oficina.',
+        story: 'Antes trabajaba en la planta de Pepsico: turnos presenciales de 12 horas, sin flexibilidad, atrapada en la rutina. Tres años después de dar el salto al trabajo remoto, hice 4x mi sueldo en Zappi, una empresa de Londres.',
     },
     {
         name: 'Rubén López',
         title: 'Project Manager @ BairesDev',
         image: '/images/Ruben Lopez.png',
-        story: 'Trabajaba en DHL haciendo lo mismo todos los días. Hoy trabajo para una empresa de San Francisco que ni siquiera tiene oficinas, todos somos remotos. Gano más de $5,000 USD al mes con prestaciones que en México parecen de otro planeta. El cambio más grande no fue el sueldo, fue dejar de sentir que mi trabajo era un callejón sin salida.',
+        story: 'Trabajaba en DHL haciendo lo mismo todos los días. Hoy trabajo para una empresa de San Francisco que ni siquiera tiene oficinas. Gano más de $5,000 USD al mes con prestaciones que en México parecen de otro planeta.',
     },
     {
         name: 'Valeria de la Torre',
         title: 'Customer Success Lead @ SimplyAgree',
         image: '/images/Valeria de la Torre.jpg',
-        story: 'Soy abogada y trabajé años en el mundo corporativo legal. Llegó un punto donde quería más: viajar, vivir aventuras, no solo facturar horas. Conseguí mi primer trabajo como Customer Success Manager en una empresa de legal tech. Usé mi experiencia legal, pero ahora con la libertad que siempre quise.',
+        story: 'Soy abogada y trabajé años en el mundo corporativo legal. Conseguí mi primer trabajo como Customer Success Manager en una empresa de legal tech. Usé mi experiencia legal, pero ahora con la libertad que siempre quise.',
     },
     {
         name: 'Juan Pablo Martinez',
         title: 'Operations Associate @ Stripe',
         image: '/images/Juan Pablo Martinez.jpg',
-        story: 'Trabajo en Stripe y recientemente me promovieron a Renewals, una de las áreas más competitivas de la empresa. Este año viví unos meses en Chicago para correr el maratón, trabajando desde la oficina de allá. Tener un trabajo remoto no significa quedarte en casa, significa que el mundo es tu oficina.',
+        story: 'Trabajo en Stripe y recientemente me promovieron a Renewals. Este año viví unos meses en Chicago para correr el maratón, trabajando desde la oficina de allá. Tener un trabajo remoto significa que el mundo es tu oficina.',
     },
     {
         name: 'Pamela Gallegos',
         title: 'Onboarding Specialist @ Pulse Protocol',
         image: '/images/Pamela Gallegos.png',
-        story: 'Soy Onboarding Specialist en PulseProtocol, una empresa de turismo médico 100% remota. Hoy vivo en España con mi novio, los dos trabajamos remoto y ganamos en dólares. No tuvimos que elegir entre carrera y vida juntos. Pudimos tener ambas.',
+        story: 'Soy Onboarding Specialist en PulseProtocol, una empresa de turismo médico 100% remota. Hoy vivo en España con mi novio, los dos trabajamos remoto y ganamos en dólares. Pudimos tener carrera y vida juntos.',
     },
     {
         name: 'Diego García',
         title: 'Data & Insights @ FXP',
         image: '/images/Diego Garcia.png',
-        story: 'Todavía estaba en la universidad cuando conseguí un internship remoto en una startup internacional de datos y tecnología. Sin experiencia laboral formal, empecé ganando más que muchos de mis compañeros con trabajos presenciales. El programa me dio las herramientas para competir en ligas que ni sabía que existían.',
+        story: 'Todavía estaba en la universidad cuando conseguí un internship remoto en una startup internacional. Sin experiencia laboral formal, empecé ganando más que muchos de mis compañeros con trabajos presenciales.',
     },
     {
         name: 'Diana Pedroza',
         title: 'Key Account Manager @ CarbonSpaceTech',
         image: '/images/Diana Pedroza.jpg',
-        story: 'Tenía un trabajo tradicional en Aguascalientes. Después de tomar el programa, encontré un trabajo 100% remoto en una empresa de sustentabilidad. Ahora gano en dólares, tengo seguro internacional, presupuesto para mi home office, y viajes pagados. Todo desde mi ciudad o desde donde yo quiera.',
+        story: 'Tenía un trabajo tradicional en Aguascalientes. Después de tomar el programa, encontré un trabajo 100% remoto. Ahora gano en dólares, tengo seguro internacional, presupuesto para mi home office, y viajes pagados.',
     },
 ];
 
-// Duplicate the array to ensure seamless infinite scroll
+// Duplicate for seamless infinite scroll
 const DOUBLED_TESTIMONIALS = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS];
 
-// Individual testimonial card component
+// Card width + gap for animation calculation
+const CARD_WIDTH = 380;
+const CARD_GAP = 24;
+const TOTAL_WIDTH = (CARD_WIDTH + CARD_GAP) * TESTIMONIALS.length;
+
 function TestimonialCard({ person, onHoverStart, onHoverEnd }: {
     person: typeof TESTIMONIALS[0];
     onHoverStart: () => void;
     onHoverEnd: () => void;
 }) {
-    const [showStory, setShowStory] = useState(false);
-
     return (
         <div
-            className="relative w-[280px] h-[450px] md:w-[320px] md:h-[500px] shrink-0 cursor-pointer rounded-2xl overflow-hidden"
+            onMouseEnter={onHoverStart}
+            onMouseLeave={onHoverEnd}
             style={{
-                border: '1px solid #E5E7EB',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+                background: '#1C2128',
+                borderRadius: '16px',
+                padding: '28px',
+                border: '1px solid #30363D',
+                display: 'flex',
+                flexDirection: 'column',
+                width: `${CARD_WIDTH}px`,
+                minHeight: '280px',
+                flexShrink: 0,
+                transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
             }}
-            onMouseEnter={() => {
-                setShowStory(true);
-                onHoverStart();
-            }}
-            onMouseLeave={() => {
-                setShowStory(false);
-                onHoverEnd();
-            }}
-            onClick={() => setShowStory(!showStory)}
+            className="hover:border-[#FC7342]/50 hover:shadow-lg hover:shadow-[#FC7342]/10"
         >
-            {/* Background Image */}
-            <Image
-                src={person.image}
-                alt={person.name}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 300px, 400px"
-            />
-
-            {/* Default gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-
-            {/* Default content (name & title) */}
-            <div className="absolute bottom-4 left-4 right-4 z-10">
-                <h3 className="text-xl font-bold mb-2 text-white leading-tight">
-                    {person.name}
-                </h3>
-                <p className="text-sm text-gray-300 font-medium leading-relaxed">
-                    {person.title}
-                </p>
+            {/* Quote Icon */}
+            <div style={{ marginBottom: '16px' }}>
+                <Quote size={28} color="#B7B6B6" strokeWidth={1.5} />
             </div>
 
-            {/* Story overlay - appears on hover/tap */}
-            <AnimatePresence>
-                {showStory && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="absolute inset-0 flex flex-col justify-center"
+            {/* Story/Quote */}
+            <p
+                style={{
+                    fontSize: '14px',
+                    lineHeight: 1.7,
+                    color: '#E0E0E0',
+                    flex: 1,
+                    marginBottom: '20px',
+                }}
+            >
+                "{person.story}"
+            </p>
+
+            {/* Author Info */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                {/* Small Circular Photo */}
+                <div
+                    style={{
+                        width: '44px',
+                        height: '44px',
+                        borderRadius: '50%',
+                        overflow: 'hidden',
+                        border: '2px solid #B7B6B6',
+                        flexShrink: 0,
+                    }}
+                >
+                    <Image
+                        src={person.image}
+                        alt={person.name}
+                        width={44}
+                        height={44}
+                        style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                    />
+                </div>
+
+                {/* Name & Title */}
+                <div>
+                    <h4
                         style={{
-                            backgroundColor: 'rgba(26, 26, 26, 0.95)',
-                            padding: '24px'
+                            fontSize: '14px',
+                            fontWeight: 700,
+                            color: '#F0F6FC',
+                            marginBottom: '2px',
                         }}
                     >
-                        <div className="text-center mb-4">
-                            <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-2 border-[#22C55E]">
-                                <Image
-                                    src={person.image}
-                                    alt={person.name}
-                                    width={64}
-                                    height={64}
-                                    className="object-cover w-full h-full"
-                                />
-                            </div>
-                            <h3 className="text-lg font-bold text-white">
-                                {person.name}
-                            </h3>
-                            <p className="text-xs text-[#22C55E] font-medium">
-                                {person.title}
-                            </p>
-                        </div>
-                        <div className="flex-1 flex items-center">
-                            <p
-                                className="text-sm text-gray-300 leading-relaxed italic"
-                                style={{
-                                    textAlign: 'justify',
-                                    margin: '0 8px'
-                                }}
-                            >
-                                "{person.story}"
-                            </p>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                        {person.name}
+                    </h4>
+                    <p
+                        style={{
+                            fontSize: '11px',
+                            color: '#B7B6B6',
+                        }}
+                    >
+                        {person.title}
+                    </p>
+                </div>
+            </div>
         </div>
     );
 }
@@ -159,59 +158,98 @@ export function Testimonials() {
 
     return (
         <section
-            className="overflow-hidden relative"
             style={{
-                paddingTop: '80px',
-                paddingBottom: '60px',
-                backgroundColor: '#FFFFFF'
+                padding: '100px 0',
+                backgroundColor: '#0D1117',
+                overflow: 'hidden',
             }}
         >
+            {/* Header */}
             <div
-                className="container mx-auto px-4"
                 style={{
-                    marginBottom: '40px'
+                    textAlign: 'center',
+                    marginBottom: '64px',
+                    padding: '0 24px',
                 }}
             >
-                <h2
-                    className="text-3xl md:text-5xl font-bold mb-8 text-center"
-                    style={{ color: '#14181E' }}
+                <motion.span
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    style={{
+                        display: 'inline-block',
+                        fontSize: '12px',
+                        fontWeight: 700,
+                        letterSpacing: '0.2em',
+                        textTransform: 'uppercase',
+                        marginBottom: '16px',
+                        color: '#FC7342',
+                    }}
                 >
-                    Casos de Éxito
-                </h2>
-                <p
-                    className="text-lg w-full text-center"
-                    style={{ color: '#6B7280' }}
+                    Historias reales
+                </motion.span>
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    style={{
+                        fontSize: 'clamp(32px, 6vw, 48px)',
+                        fontWeight: 700,
+                        color: '#F0F6FC',
+                        letterSpacing: '-0.02em',
+                    }}
                 >
-                    Conoce a quienes ya transformaron su carrera con nosotros.
-                </p>
+                    Lo que dicen sobre nosotros
+                </motion.h2>
             </div>
 
-            {/* Marquee Container */}
-            <div className="relative w-full overflow-hidden">
-                {/* Gradient Masks for edges */}
+            {/* Infinite Scroll Carousel */}
+            <div style={{ position: 'relative', width: '100%' }}>
+                {/* Gradient Masks */}
                 <div
-                    className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-                    style={{ background: 'linear-gradient(to right, #FFFFFF, transparent)' }}
+                    style={{
+                        position: 'absolute',
+                        left: 0,
+                        top: 0,
+                        bottom: 0,
+                        width: '120px',
+                        background: 'linear-gradient(to right, #0D1117, transparent)',
+                        zIndex: 10,
+                        pointerEvents: 'none',
+                    }}
                 />
                 <div
-                    className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-                    style={{ background: 'linear-gradient(to left, #FFFFFF, transparent)' }}
+                    style={{
+                        position: 'absolute',
+                        right: 0,
+                        top: 0,
+                        bottom: 0,
+                        width: '120px',
+                        background: 'linear-gradient(to left, #0D1117, transparent)',
+                        zIndex: 10,
+                        pointerEvents: 'none',
+                    }}
                 />
 
+                {/* Scrolling Container */}
                 <motion.div
-                    className="flex gap-6 w-max pl-8"
                     animate={{
-                        x: isPaused ? undefined : ['0%', '-33.33%']
+                        x: isPaused ? undefined : [0, -TOTAL_WIDTH],
                     }}
                     transition={{
                         x: {
+                            duration: 50,
                             repeat: Infinity,
-                            repeatType: "loop",
-                            duration: 40,
-                            ease: "linear",
+                            ease: 'linear',
                         },
                     }}
-                    style={isPaused ? { animationPlayState: 'paused' } : {}}
+                    style={{
+                        display: 'flex',
+                        gap: `${CARD_GAP}px`,
+                        paddingLeft: '24px',
+                        paddingRight: '24px',
+                    }}
                 >
                     {DOUBLED_TESTIMONIALS.map((person, index) => (
                         <TestimonialCard
@@ -223,6 +261,23 @@ export function Testimonials() {
                     ))}
                 </motion.div>
             </div>
+
+            {/* Social Proof Footer */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                style={{
+                    marginTop: '64px',
+                    textAlign: 'center',
+                    padding: '0 24px',
+                }}
+            >
+                <p style={{ color: '#B7B6B6', fontSize: '15px' }}>
+                    Únete a más de <span style={{ color: '#FC7342', fontWeight: 700 }}>350 profesionales</span> que ya transformaron su carrera.
+                </p>
+            </motion.div>
         </section>
     );
 }

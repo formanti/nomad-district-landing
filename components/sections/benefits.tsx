@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { DollarSign, Globe2, Users, LucideIcon } from "lucide-react";
-import Image from "next/image";
 
 const iconMap: Record<string, LucideIcon> = {
     DollarSign,
@@ -41,15 +40,15 @@ const defaultBenefits: Benefit[] = [
 ];
 
 export function BenefitsSection({
-    eyebrow = "¿Por qué elegirnos?",
-    headline = "Transforma tu carrera profesional",
+    eyebrow = "¿Por qué nosotros?",
+    headline = "Esto no es para todos.",
     benefits = defaultBenefits,
 }: BenefitsSectionProps) {
     return (
         <section
             style={{
-                padding: '80px 0',
-                backgroundColor: '#F8F7F4'
+                padding: '100px 0',
+                backgroundColor: '#0D1117'
             }}
         >
             <div
@@ -57,41 +56,49 @@ export function BenefitsSection({
                     width: '100%',
                     maxWidth: '1200px',
                     margin: '0 auto',
-                    padding: '0 20px'
+                    padding: '0 24px'
                 }}
             >
                 {/* Section Header */}
-                <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-                    <span
+                <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+                    <motion.span
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
                         style={{
                             display: 'block',
-                            fontSize: '14px',
-                            fontWeight: 600,
-                            letterSpacing: '0.15em',
+                            fontSize: '12px',
+                            fontWeight: 700,
+                            letterSpacing: '0.2em',
                             textTransform: 'uppercase',
-                            marginBottom: '12px',
-                            color: '#22C55E'
+                            marginBottom: '16px',
+                            color: '#B7B6B6'
                         }}
                     >
                         {eyebrow}
-                    </span>
-                    <h2
+                    </motion.span>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1, duration: 0.6 }}
                         style={{
-                            fontSize: 'clamp(28px, 6vw, 48px)',
+                            fontSize: 'clamp(32px, 6vw, 52px)',
                             fontWeight: 700,
-                            color: '#14181E', // Dark text
-                            padding: '0 10px'
+                            color: '#F0F6FC',
+                            letterSpacing: '-0.02em',
                         }}
                     >
                         {headline}
-                    </h2>
+                    </motion.h2>
                 </div>
 
                 {/* Benefits Grid */}
                 <div
                     style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                         gap: '24px'
                     }}
                 >
@@ -100,43 +107,46 @@ export function BenefitsSection({
                         return (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.15, duration: 0.5 }}
+                                transition={{ delay: index * 0.15, duration: 0.6 }}
+                                whileHover={{
+                                    y: -8,
+                                    transition: { duration: 0.3 }
+                                }}
                                 style={{
-                                    padding: '32px',
+                                    padding: '40px 32px',
                                     borderRadius: '20px',
-                                    backgroundColor: '#FFFFFF', // White cards
-                                    border: '1px solid #E5E7EB',
-                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
-                                    transition: 'all 0.3s ease'
+                                    backgroundColor: '#1C2128',
+                                    border: '1px solid #30363D',
+                                    transition: 'all 0.3s ease',
                                 }}
                             >
                                 {/* Icon */}
                                 <div
                                     style={{
-                                        width: '56px',
-                                        height: '56px',
-                                        borderRadius: '14px',
+                                        width: '60px',
+                                        height: '60px',
+                                        borderRadius: '16px',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        marginBottom: '20px',
-                                        backgroundColor: 'rgba(34, 197, 94, 0.1)',
-                                        color: '#22C55E'
+                                        marginBottom: '24px',
+                                        background: 'linear-gradient(135deg, rgba(183, 182, 182, 0.1), rgba(183, 182, 182, 0.05))',
+                                        border: '1px solid rgba(183, 182, 182, 0.2)',
                                     }}
                                 >
-                                    <IconComponent size={28} strokeWidth={1.5} />
+                                    <IconComponent size={28} strokeWidth={1.5} color="#B7B6B6" />
                                 </div>
 
                                 {/* Title */}
                                 <h3
                                     style={{
-                                        fontSize: '20px',
+                                        fontSize: '22px',
                                         fontWeight: 700,
-                                        marginBottom: '12px',
-                                        color: '#14181E' // Dark text
+                                        marginBottom: '14px',
+                                        color: '#F0F6FC',
                                     }}
                                 >
                                     {benefit.title}
@@ -147,7 +157,7 @@ export function BenefitsSection({
                                     style={{
                                         fontSize: '15px',
                                         lineHeight: 1.7,
-                                        color: '#6B7280' // Gray text
+                                        color: '#B7B6B6',
                                     }}
                                 >
                                     {benefit.description}

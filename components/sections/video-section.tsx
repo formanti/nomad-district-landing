@@ -12,15 +12,15 @@ interface VideoSectionProps {
 export function VideoSection({
     eyebrow = "¿Qué ofrecemos?",
     headline = "Toma el control de tu carrera.",
-    videoUrl = "https://player.vimeo.com/video/1146233269?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0",
+    videoUrl = "https://player.vimeo.com/video/1148703598?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0",
     caption = "Descubre cómo hemos ayudado a más de 350 profesionales a escapar de la oficina y construir una vida bajo sus propios términos.",
 }: VideoSectionProps) {
     return (
         <section
             id="video-section"
             style={{
-                padding: '80px 0',
-                backgroundColor: '#FFFFFF', // White background
+                padding: '100px 0',
+                backgroundColor: '#0D1117',
                 textAlign: 'center'
             }}
         >
@@ -29,25 +29,25 @@ export function VideoSection({
                     width: '100%',
                     maxWidth: '1000px',
                     margin: '0 auto',
-                    padding: '0 20px'
+                    padding: '0 24px'
                 }}
             >
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8 }}
                 >
                     {/* Section Label */}
                     <span
                         style={{
-                            display: 'block',
-                            fontSize: '14px',
-                            fontWeight: 600,
-                            letterSpacing: '0.15em',
+                            display: 'inline-block',
+                            fontSize: '12px',
+                            fontWeight: 700,
+                            letterSpacing: '0.2em',
                             textTransform: 'uppercase',
-                            marginBottom: '12px',
-                            color: '#22C55E'
+                            marginBottom: '16px',
+                            color: '#B7B6B6'
                         }}
                     >
                         {eyebrow}
@@ -58,25 +58,25 @@ export function VideoSection({
                         style={{
                             fontSize: 'clamp(28px, 6vw, 48px)',
                             fontWeight: 700,
-                            marginBottom: '32px',
-                            color: '#14181E', // Dark text
-                            padding: '0 10px'
+                            marginBottom: '48px',
+                            color: '#F0F6FC',
+                            letterSpacing: '-0.02em',
                         }}
                     >
                         {headline}
                     </h2>
 
-                    {/* Vimeo Video Embed */}
+                    {/* Video Container with Glow Effect */}
                     <div
                         style={{
                             position: 'relative',
                             width: '100%',
                             paddingBottom: '56.25%',
-                            borderRadius: '16px',
+                            borderRadius: '20px',
                             overflow: 'hidden',
-                            backgroundColor: '#14181E',
-                            border: '1px solid #E5E7EB',
-                            boxShadow: '0 20px 60px rgba(0,0,0,0.15)'
+                            backgroundColor: '#161B22',
+                            border: '1px solid #30363D',
+                            boxShadow: '0 0 80px rgba(252, 115, 66, 0.1), 0 20px 60px rgba(0, 0, 0, 0.5)',
                         }}
                     >
                         <iframe
@@ -97,13 +97,12 @@ export function VideoSection({
                     {/* Caption */}
                     <p
                         style={{
-                            marginTop: '24px',
-                            maxWidth: '600px',
-                            margin: '24px auto 0 auto',
-                            fontSize: 'clamp(14px, 3vw, 18px)',
-                            lineHeight: 1.7,
-                            color: '#6B7280', // Gray text
-                            padding: '0 10px'
+                            marginTop: '32px',
+                            maxWidth: '650px',
+                            margin: '32px auto 0 auto',
+                            fontSize: 'clamp(14px, 3vw, 17px)',
+                            lineHeight: 1.8,
+                            color: '#B7B6B6',
                         }}
                     >
                         {caption}

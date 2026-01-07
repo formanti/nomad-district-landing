@@ -67,11 +67,11 @@ export function Navbar() {
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    padding: '8px 24px',
-                    background: 'rgba(255, 255, 255, 0.95)',
-                    backdropFilter: 'blur(12px)',
-                    WebkitBackdropFilter: 'blur(12px)',
-                    borderBottom: '1px solid #E5E7EB',
+                    padding: '12px 24px',
+                    background: 'rgba(13, 17, 23, 0.85)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
+                    borderBottom: '1px solid rgba(48, 54, 61, 0.5)',
                 }}
             >
                 {/* Logo Section */}
@@ -82,9 +82,12 @@ export function Navbar() {
                             <Image
                                 src="/images/isotipo.png"
                                 alt="Nomad District"
-                                width={50}
-                                height={50}
-                                style={{ objectFit: 'contain' }}
+                                width={42}
+                                height={42}
+                                style={{
+                                    objectFit: 'contain',
+                                    filter: 'brightness(0) invert(1)',
+                                }}
                                 priority
                                 unoptimized
                             />
@@ -94,9 +97,12 @@ export function Navbar() {
                             <Image
                                 src="/images/logo-new.png"
                                 alt="Nomad District"
-                                width={180}
-                                height={41}
-                                style={{ objectFit: 'contain' }}
+                                width={160}
+                                height={38}
+                                style={{
+                                    objectFit: 'contain',
+                                    filter: 'brightness(0) invert(1)',
+                                }}
                                 priority
                                 unoptimized
                             />
@@ -120,17 +126,17 @@ export function Navbar() {
                                 href={link.href}
                                 style={{
                                     position: 'relative',
-                                    fontSize: '13px',
+                                    fontSize: '12px',
                                     fontWeight: 600,
-                                    letterSpacing: '0.1em',
-                                    color: isActive ? '#22C55E' : '#14181E',
+                                    letterSpacing: '0.12em',
+                                    color: isActive ? '#FC7342' : '#F0F6FC',
                                     textDecoration: 'none',
                                     padding: '8px 0',
                                     transition: 'color 0.3s ease',
                                 }}
                             >
                                 <motion.span
-                                    whileHover={{ color: '#22C55E' }}
+                                    whileHover={{ color: '#FC7342' }}
                                     style={{ display: 'inline-block' }}
                                 >
                                     {link.label}
@@ -152,9 +158,9 @@ export function Navbar() {
                                         bottom: 0,
                                         left: 0,
                                         height: '2px',
-                                        background: 'linear-gradient(90deg, #22C55E, #4ADE80)',
+                                        background: 'linear-gradient(90deg, #FC7342, #E65A2B)',
                                         borderRadius: '1px',
-                                        boxShadow: isActive ? '0 0 10px rgba(34, 197, 94, 0.5)' : 'none',
+                                        boxShadow: isActive ? '0 0 12px rgba(252, 115, 66, 0.5)' : 'none',
                                     }}
                                 />
                             </Link>
@@ -174,16 +180,18 @@ export function Navbar() {
                     {/* Log in button */}
                     <Link
                         href={SKOOL_URL}
+                        onClick={handleCtaClick}
                         style={{
-                            padding: '8px 16px',
-                            borderRadius: '6px',
-                            fontSize: '13px',
+                            padding: '10px 20px',
+                            borderRadius: '8px',
+                            fontSize: '12px',
                             fontWeight: 600,
-                            color: '#14181E',
+                            letterSpacing: '0.05em',
+                            color: '#F0F6FC',
                             textDecoration: 'none',
-                            border: '1px solid #D1D5DB',
-                            background: 'transparent',
-                            transition: 'all 0.2s ease',
+                            border: '1px solid rgba(252, 115, 66, 0.4)',
+                            background: 'rgba(252, 115, 66, 0.1)',
+                            transition: 'all 0.3s ease',
                         }}
                     >
                         Log in

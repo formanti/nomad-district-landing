@@ -1,10 +1,10 @@
 {
     "hero": {
         "badge": "Remote Job Academy",
-        "headline": "Consigue un trabajo remoto",
-        "headlineHighlight": "y gana en dólares.",
-        "subheadline": "Método probado y garantizado.\nEl sistema que funcionó para 350+ personas como tú.",
-        "ctaPrimary": "Únete al Programa →",
+        "headline": "Trabaja remoto. Gana en dólares.",
+        "headlineHighlight": "Vive diferente.",
+        "subheadline": "No seguimos las reglas del mercado laboral tradicional. Las diseñamos.\nY enseñamos a otros a hacer lo mismo.",
+        "ctaPrimary": "Unirme al programa",
         "ctaSecondary": "¿Qué ofrecemos?"
     },
     "video": {
@@ -14,7 +14,7 @@
         "caption": "Descubre cómo hemos ayudado a más de 350 profesionales a escapar de la oficina y construir una vida bajo sus propios términos."
     },
     "benefits": {
-        "eyebrow": "¿Por qué elegirnos?",
+        "eyebrow": "¿POR QUÉ NOSOTROS?",
         "headline": "Transforma tu carrera profesional",
         "items": [
             {

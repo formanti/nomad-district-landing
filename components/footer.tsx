@@ -1,11 +1,13 @@
+import Link from "next/link";
+
 export function Footer() {
     return (
         <footer
             style={{
-                padding: '40px 0',
+                padding: '48px 0',
                 textAlign: 'center',
-                borderTop: '1px solid #E0E0E0',
-                backgroundColor: '#F5F5F0'
+                borderTop: '1px solid #30363D',
+                backgroundColor: '#0D1117'
             }}
         >
             <div
@@ -16,10 +18,19 @@ export function Footer() {
                     padding: '0 24px'
                 }}
             >
-                <p style={{ fontSize: '14px', color: '#666666' }}>
+                <p style={{ fontSize: '14px', color: '#B7B6B6' }}>
                     &copy; {new Date().getFullYear()} Nomad District. Todos los derechos reservados.
                 </p>
-                <p style={{ marginTop: '8px', fontSize: '12px', color: '#22C55E' }}>
+                <p style={{
+                    marginTop: '12px',
+                    fontSize: '13px',
+                    background: 'linear-gradient(135deg, #FC7342, #E65A2B)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                }}>
                     Lifestyle as a Service
                 </p>
             </div>

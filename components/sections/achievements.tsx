@@ -29,8 +29,9 @@ export function AchievementsSection() {
     return (
         <section
             style={{
-                padding: '80px 0',
-                background: '#FFFFFF',
+                padding: '100px 0',
+                background: '#0D1117',
+                borderTop: '1px solid #30363D',
             }}
         >
             <div className="container">
@@ -45,12 +46,12 @@ export function AchievementsSection() {
                         style={{
                             fontSize: 'clamp(28px, 6vw, 42px)',
                             fontWeight: 700,
-                            color: '#1A1A1A',
+                            color: '#F0F6FC',
                             marginBottom: '16px',
                         }}
                     >
                         Qué Hemos{" "}
-                        <span style={{ color: '#22C55E' }}>Logrado</span>
+                        <span style={{ color: '#FC7342' }}>Logrado</span>
                     </h2>
                 </motion.div>
 
@@ -70,15 +71,15 @@ export function AchievementsSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             style={{
-                                background: '#F5F5F0',
+                                background: '#1C2128',
                                 borderRadius: '20px',
                                 padding: '32px 24px',
                                 textAlign: 'center',
-                                border: '1px solid #E0E0E0',
+                                border: '1px solid #30363D',
                                 transition: 'all 0.3s ease',
                             }}
                             whileHover={{
-                                borderColor: 'rgba(34, 197, 94, 0.5)',
+                                borderColor: 'rgba(252, 115, 66, 0.5)',
                                 transform: 'translateY(-4px)',
                             }}
                         >
@@ -94,7 +95,7 @@ export function AchievementsSection() {
                                 style={{
                                     fontSize: 'clamp(28px, 5vw, 36px)',
                                     fontWeight: 700,
-                                    color: '#22C55E',
+                                    color: '#FC7342',
                                     marginBottom: '12px',
                                 }}
                             >
@@ -103,7 +104,7 @@ export function AchievementsSection() {
                             <p
                                 style={{
                                     fontSize: '14px',
-                                    color: '#666666',
+                                    color: '#B7B6B6',
                                     lineHeight: 1.5,
                                 }}
                             >
