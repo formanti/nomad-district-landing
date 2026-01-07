@@ -230,7 +230,7 @@ export function OfferSection({
                             backgroundColor: '#1C2128',
                             borderRadius: '20px',
                             padding: '36px 28px',
-                            border: '1px solid #30363D',
+                            border: '1px solid #FC7342',
                             display: 'flex',
                             flexDirection: 'column',
                             position: 'relative'
