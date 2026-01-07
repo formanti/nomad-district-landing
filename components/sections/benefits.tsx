@@ -47,7 +47,7 @@ export function BenefitsSection({
     return (
         <section
             style={{
-                padding: '100px 0',
+                padding: '100px 0 40px 0',
                 backgroundColor: '#0D1117'
             }}
         >

@@ -159,7 +159,7 @@ export function Testimonials() {
     return (
         <section
             style={{
-                padding: '100px 0',
+                padding: '40px 0 100px 0',
                 backgroundColor: '#0D1117',
                 overflow: 'hidden',
             }}
